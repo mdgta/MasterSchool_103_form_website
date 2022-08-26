@@ -1,0 +1,78 @@
+/* ================================ *\
+    # defaults
+\* ================================ */
+:root {
+    font: 18px/1.5em 'Open Sans', Arial, sans-serif;
+}
+body {
+    margin: 0;
+    background: repeating-linear-gradient(to right, #fafafa, #fafafa 4px, #f8f8f8 4px, #f8f8f8 8px);
+}
+
+/* reset spacings */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* reset list elements that don't have class="list" */
+:where(ol, ul, menu):not(.list) {
+    list-style-type: none;
+}
+:where(ol, ul, menu).list {
+    padding-left: 40px;
+}
+
+/* ================================ *\
+    # global header
+\* ================================ */
+
+/* ================================ *\
+    # main area
+\* ================================ */
+
+#layout-container {
+    margin: 40px 0 20px;
+    background: #fff;
+}
+
+
+
+/**/
+
+
+
+[data-section] {
+    display: none;
+    height: 30px;
+    border: 1px solid #c00;
+}
+
+.global-navigation-menu-item {
+    cursor: pointer;
+}
+.global-navigation-menu-item:hover {
+    background: #eee;
+}
+
+/* form */
+.subscription-form {
+    display: grid;
+    grid: auto / 1fr 1fr;
+    gap: 10px;
+    padding: 20px;
+    font-size: smaller;
+}
+.subscription-form fieldset {
+    border: none;
+}
+.subscription-form label {
+    display: block;
+}
+.subscription-form :is(input, textarea) {
+    width: 100%;
+}
+.subscription-form textarea {
+    resize: none;
+}

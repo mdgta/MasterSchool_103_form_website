@@ -1,0 +1,4 @@
+@import url('./size-small.css') screen;
+@import url('./size-mid.css') screen and (min-width: 400px);
+@import url('./size-large.css') screen and (min-width: 720px);
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
