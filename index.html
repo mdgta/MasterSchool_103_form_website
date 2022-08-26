@@ -25,9 +25,12 @@
 
 <!-- top global header -->
 <header id="global-header">
-    <picture id="global-logo">
-
-    </picture>
+    <a href="">
+        <picture id="global-logo">
+            <source srcset="src/images/ugly-af-logo.svg 250w" type="image/svg+xml" />
+            <img alt="Logo" width="200px" />
+        </picture>
+    </a>
     <nav id="global-navigation">
         <menu></menu>
     </nav>
@@ -36,23 +39,32 @@
 <!-- main layout grouping -->
 <div id="layout-container">
 
-    <div data-section="Item Number 1" id="foo-1">Test 1</div>
-    <div data-section="Item Number 2" id="foo-2">Test 2</div>
-    <div data-section="Item Number 3" id="foo-3">Test 3</div>
-    <div data-section="Item Number 4" id="foo-4">Test 4</div>
-    <div data-section="Item Number 5" id="foo-5">Test 5</div>
 
     <!-- main header -->
     <header id="layout-site-header">
-
+        <h1>Some heading</h1>
     </header>
     <!-- sub-header navigational links -->
     <header id="layout-site-header">
 
     </header>
 
+    <!-- testimonials -->
+    <section id="layout-site-projects" data-section="Our projects">
+        <p>
+            blah blah our projects blah blah
+        </p>
+    </section>
+
+    <!-- testimonials -->
+    <section id="layout-site-testimonials" data-section="Testimonials">
+        <p>
+            blah blah testimonials blah blah
+        </p>
+    </section>
+
     <!-- subscription box -->
-    <section id="layout-site-subscription">
+    <section id="layout-site-subscription" data-section="Subscribe">
         <form method="POST" class="subscription-form">
             <fieldset>
                 <label>
@@ -65,7 +77,13 @@
                 </label>
                 <label>
                     Phone number<br />
-                    <input type="tel" name="sbsc-phone" placeholder="Write your phone number here" />
+                    <!--
+                        just gonna use common israeli number formats
+                        0x-xxx-xxxx
+                        05x-xxx-xxxx
+                        1-xxx-xxx-xxx
+                    -->
+                    <input type="tel" required pattern="0\d{1,2}\-?\d{3}\-?\d{4}|1(?:\-?\d{3}){3}" name="sbsc-phone" placeholder="Write your phone number here" />
                 </label>
             </fieldset>
             <fieldset>

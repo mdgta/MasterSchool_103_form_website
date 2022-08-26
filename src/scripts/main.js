@@ -4,9 +4,6 @@
 
 /* easier function for creating element nodes */
 
-// since we're expected to use addEventListener and createElement a lot in this project
-// i figured it would be a lot better to just create a function that combines everything
-
 // validator for text node values (only accept numbers/strings)
 function isValidText(v) {
 	return ["string", "number"].includes(typeof v);
@@ -39,11 +36,11 @@ function makeEl(tag, data) {
 					// text content
 					node.textContent = data.text;
 					break;
-				case "children":
+				case "childs":
 					// try iterating through data.children
 					// instead of forEach, to also support array-like data types like HTMLCollection
 					try {
-						for (let child of data.children) {
+						for (let child of data.childs) {
 							if (child instanceof Node) {
 								// valid child node
 								node.appendChild(child);
@@ -56,7 +53,7 @@ function makeEl(tag, data) {
 							}
 						}
 					} catch(err) {
-						console.error("makeEl :: data.children was defined but could not iterate through the property's value:", data.children, err);
+						console.error("makeEl :: data.childs was defined but could not iterate through the property's value:", data.childs, err);
 					}
 					break;
 				case "id":
@@ -67,6 +64,10 @@ function makeEl(tag, data) {
 					// class name attribute
 					node.className = data.class;
 					break;
+				case "style":
+					// style attribute
+					node.style.cssText = data.style;
+					break;
 				case "attrs":
 					if (!(data.attrs instanceof Object)) {
 						// data.attrs is not an array
@@ -75,7 +76,19 @@ function makeEl(tag, data) {
 					}
 					// attributes
 					for (let attr in data.attrs) {
-						node.setAttribute(attr, data.attrs[attr]);
+						let curr = data.attrs[attr];
+						if (curr instanceof Array) {
+							// array value for custom namespace (e.g. for svg, tho don't think i'll implement it in this project)
+							if (curr.length === 1) {
+								// 1-item array- namespace set to null
+								node.setAttributeNS(null, attr, curr[0]);
+							} else {
+								// any other array- define the namespace
+								node.setAttributeNS(curr[0], attr, curr[1]);
+							}
+						} else {
+							node.setAttribute(attr, curr);
+						}
 					}
 					break;
 				case "events":
@@ -88,6 +101,7 @@ function makeEl(tag, data) {
 					}
 					data.events.forEach(function(fnArgs) {
 						// ["click", fn, optional options or useCapture parameter]
+						console.log(fnArgs);
 						if (
 							fnArgs instanceof Array && // fnArgs is an array
 							typeof fnArgs[0] === "string" && // first argument is string (listener type)
@@ -95,8 +109,10 @@ function makeEl(tag, data) {
 							["boolean", "object", "undefined"].includes(typeof fnArgs[2]) // third argument is boolean (useCapture)/object (options)/null/undefined
 						) {
 							// valid listener arguments
+							console.log("valid", fnArgs);
 							node.addEventListener(...fnArgs);
 						} else {
+							console.log("invalid", fnArgs);
 							// invalid listener arguments
 							console.warn("makeEl :: invalid listener in the events list:", fnArgs);
 						}
@@ -116,21 +132,56 @@ function makeEl(tag, data) {
 \* ================================ */
 
 /* generate menu links */
-function updateTopMenu() {
+(function() {
 	const menu = document.querySelector("#global-navigation menu");
 	// create links to all the [data-section] elements
-	document.querySelectorAll("[data-section]").forEach(function(a) {
+	document.querySelectorAll("[data-section]").forEach(function(section) {
 		let node = makeEl("li", {
 			class: "global-navigation-menu-item",
-			text: a.getAttribute("data-section"),
+			text: section.dataset.section,
 			events: [
 				["click", function() {
-					location.hash = a.id;
+					section.scrollIntoView({
+						behavior: "smooth"
+					});
 				}]
 			]
 		});
 		menu.appendChild(node);
 	});
-}
+}());
 
-updateTopMenu();
+/* back to top button */
+(function() {
+	const btn = makeEl("div", {
+			id: "back-to-top",
+			events: [
+				["click", function() {
+					location.href = "#";
+				}]
+			]
+		}),
+		gn = document.querySelector("#global-navigation");
+	function updateBtn() {
+		const isBelowHeading = gn.getBoundingClientRect().bottom <= 0; // if scrolled/jumped past the heading
+		btn.classList.toggle("back-to-top-hidden", !isBelowHeading);
+	}
+	updateBtn();
+	["hashchange", "scroll"].forEach(function(eventType) {
+		document.addEventListener(eventType, updateBtn);
+	});
+	document.body.appendChild(btn);
+}());
+
+
+
+/* for debugging */
+(function() {
+	try {
+		document.querySelector('[name="sbsc-fullname"]').value = "My Name";
+		document.querySelector('[name="sbsc-email"]').value = "foomail@test.com";
+		//document.querySelector('[name="sbsc-phone"]').value = "6";
+		document.querySelector('[name="sbsc-subject"]').value = "Some subject title";
+		document.querySelector('[name="sbsc-textbody"]').value = "She sells sheashells by the seashore.";
+	} catch(err) {}
+}());

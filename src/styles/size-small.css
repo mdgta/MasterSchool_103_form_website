@@ -1,78 +1,108 @@
 /* ================================ *\
-    # defaults
+	# defaults
 \* ================================ */
 :root {
-    font: 18px/1.5em 'Open Sans', Arial, sans-serif;
+	font: 18px/1.5em 'Open Sans', Arial, sans-serif;
 }
 body {
-    margin: 0;
-    background: repeating-linear-gradient(to right, #fafafa, #fafafa 4px, #f8f8f8 4px, #f8f8f8 8px);
+	margin: 0;
+	background: repeating-linear-gradient(to right, #fafafa, #fafafa 4px, #f8f8f8 4px, #f8f8f8 8px);
 }
 
 /* reset spacings */
 *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 /* reset list elements that don't have class="list" */
 :where(ol, ul, menu):not(.list) {
-    list-style-type: none;
+	list-style-type: none;
 }
 :where(ol, ul, menu).list {
-    padding-left: 40px;
+	padding-left: 40px;
 }
 
 /* ================================ *\
-    # global header
+	# global header
 \* ================================ */
 
+#global-header {
+	background: linear-gradient(to bottom, #fafafa, #eee);
+	border-bottom: 1px solid #ddd;
+}
+
+
 /* ================================ *\
-    # main area
+	# main area
 \* ================================ */
 
 #layout-container {
-    margin: 40px 0 20px;
-    background: #fff;
+	margin: 40px 0 20px;
+	background: #fff8;
 }
 
 
 
-/**/
-
-
-
+/* test */
 [data-section] {
-    display: none;
-    height: 30px;
-    border: 1px solid #c00;
+	min-height: 300px;
 }
+
+
+
+
+
+
 
 .global-navigation-menu-item {
-    cursor: pointer;
+	cursor: pointer;
 }
 .global-navigation-menu-item:hover {
-    background: #eee;
+	background: #eee;
 }
 
 /* form */
 .subscription-form {
-    display: grid;
-    grid: auto / 1fr 1fr;
-    gap: 10px;
-    padding: 20px;
-    font-size: smaller;
+	display: grid;
+	grid: auto / 1fr 1fr;
+	gap: 10px;
+	padding: 20px;
+	font-size: smaller;
 }
 .subscription-form fieldset {
-    border: none;
+	border: none;
 }
 .subscription-form label {
-    display: block;
+	display: block;
 }
 .subscription-form :is(input, textarea) {
-    width: 100%;
+	width: 100%;
 }
 .subscription-form textarea {
-    resize: none;
+	resize: none;
+}
+.subscription-form input:invalid {
+	outline: 2px solid #cc0;
+	outline-offset: 2px;
+}
+
+/* back to top button */
+#back-to-top {
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	bottom: 40px;
+	right: 10px;
+	background: #0008 url('../images/totop.svg') -1px 0 no-repeat; /* has to reposition because the box-sizing is set to border box */
+	border: 1px solid #fff8;
+	border-radius: 40%;
+	transition: right 300ms, border-radius 300ms 150ms;
+	cursor: pointer;
+}
+
+#back-to-top.back-to-top-hidden {
+	right: -40px;
+	border-radius: 40% 0 0 40%;
 }
