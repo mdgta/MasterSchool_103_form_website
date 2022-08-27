@@ -4,7 +4,11 @@ Masterschool's form website project (103). Their proposed layout example can be 
 
 ## Credits
 
-Used as resources Masterschool's program (including Udacity and PluralSight) and MDN
+Used as resources Masterschool's program (including Udacity and PluralSight) and MDN.
+
+CSS-trics and their [article](https://css-tricks.com/svg-properties-and-css/#svg-shape-morphing) about the use of CSS properties as SVG attributes to get the path's `d` also working in my CSS.
+
+Also thanks to Rahim Afful-Brown for helping locating a data type check issue in `makeEl` on child elements after one of the commits.
 
 ## main.js
 

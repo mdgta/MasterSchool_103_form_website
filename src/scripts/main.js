@@ -24,9 +24,9 @@ function makeEl(tag, data) {
 	const node = document.createElement(tag);
 	// check if requires additional attributes/data
 	if (data instanceof Object) {
-		if (data.hasOwnProperty("text") && data.hasOwnProperty("children")) {
-			// .text cannot be used if .children is also declared
-			console.warn("makeEl :: text overridden by children:", {text: data.text, children: data.children});
+		if (data.hasOwnProperty("text") && data.hasOwnProperty("childs")) {
+			// .text cannot be used if .childs is also declared
+			console.warn("makeEl :: text overridden by childs:", {text: data.text, childs: data.childs});
 			delete data.text;
 		}
 		// modify the node based on the data
@@ -37,7 +37,7 @@ function makeEl(tag, data) {
 					node.textContent = data.text;
 					break;
 				case "childs":
-					// try iterating through data.children
+					// try iterating through data.childs
 					// instead of forEach, to also support array-like data types like HTMLCollection
 					try {
 						for (let child of data.childs) {
@@ -101,7 +101,6 @@ function makeEl(tag, data) {
 					}
 					data.events.forEach(function(fnArgs) {
 						// ["click", fn, optional options or useCapture parameter]
-						console.log(fnArgs);
 						if (
 							fnArgs instanceof Array && // fnArgs is an array
 							typeof fnArgs[0] === "string" && // first argument is string (listener type)
@@ -109,7 +108,6 @@ function makeEl(tag, data) {
 							["boolean", "object", "undefined"].includes(typeof fnArgs[2]) // third argument is boolean (useCapture)/object (options)/null/undefined
 						) {
 							// valid listener arguments
-							console.log("valid", fnArgs);
 							node.addEventListener(...fnArgs);
 						} else {
 							console.log("invalid", fnArgs);
@@ -133,7 +131,7 @@ function makeEl(tag, data) {
 
 /* generate menu links */
 (function() {
-	const menu = document.querySelector("#global-navigation menu");
+	const menu = document.querySelector("#global-navigation ul");
 	// create links to all the [data-section] elements
 	document.querySelectorAll("[data-section]").forEach(function(section) {
 		let node = makeEl("li", {
@@ -141,9 +139,17 @@ function makeEl(tag, data) {
 			text: section.dataset.section,
 			events: [
 				["click", function() {
-					section.scrollIntoView({
+					// close overlay menu for mobile
+					document.querySelector("#global-header").classList.remove("global-header-menu-open");
+
+					scrollBy({
+						top: section.getBoundingClientRect().top - 70, // 70 is the global nav height
 						behavior: "smooth"
 					});
+				}],
+				["mouseover", function() {
+					// DEBUG EVENTS
+					console.log(section);
 				}]
 			]
 		});
@@ -151,19 +157,29 @@ function makeEl(tag, data) {
 	});
 }());
 
+/* mobile toggle menu */
+document.querySelector("#global-header svg").addEventListener("click", function(e) {
+	// toggle menu state
+	e.target.closest("header").classList.toggle("global-header-menu-open");
+});
+
 /* back to top button */
 (function() {
 	const btn = makeEl("div", {
 			id: "back-to-top",
 			events: [
 				["click", function() {
-					location.href = "#";
+					scrollTo({
+						top: 0,
+						behavior: "smooth"
+					});
 				}]
 			]
 		}),
 		gn = document.querySelector("#global-navigation");
 	function updateBtn() {
-		const isBelowHeading = gn.getBoundingClientRect().bottom <= 0; // if scrolled/jumped past the heading
+		//const isBelowHeading = gn.getBoundingClientRect().bottom <= 0; // if scrolled/jumped past the heading
+		const isBelowHeading = document.body.getBoundingClientRect().top <= 70;
 		btn.classList.toggle("back-to-top-hidden", !isBelowHeading);
 	}
 	updateBtn();
