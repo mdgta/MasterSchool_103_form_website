@@ -125,6 +125,38 @@ function makeEl(tag, data) {
 	return node;
 }
 
+/* miscellaneous functions */
+
+// change marker on selected top navigation links based on scroll position
+function updateNavFocusMarker() {
+	const currMarked = document.querySelector(".global-navigation-menu-item-focused"),
+		menuItems = document.querySelectorAll("#global-navigation li"),
+		sections = document.querySelectorAll("[data-section]");
+	let section,
+		bbox;
+	if (currMarked) {
+		// remove current marker (if exists)
+		currMarked.classList.remove("global-navigation-menu-item-focused");
+	}
+	// loop through the sections (in reversed order) to find the last-selected item
+	for (let i = 0; i < sections.length; i++) {
+	//for (let i = sections.length - 1; 0 <= i; i--) {
+		section = sections[i];
+		bbox = section.getBoundingClientRect();
+		//console.log(i + "/" + sections.length, bbox.top >= 70, bbox.top, section);
+		if (bbox.top + bbox.height >= 70) {
+			// last scrolled-past section- mark as current
+			menuItems[i].classList.add("global-navigation-menu-item-focused");
+			break;
+			//DEBUG
+			//section.style.background = "#0c0";
+		} else {
+			//DEBUG
+			//section.style.background = "#c00";
+		}
+	}
+}
+
 /* ================================ *\
     # implementations
 \* ================================ */
@@ -141,19 +173,23 @@ function makeEl(tag, data) {
 				["click", function() {
 					// close overlay menu for mobile
 					document.querySelector("#global-header").classList.remove("global-header-menu-open");
-
+					// scroll to position
 					scrollBy({
 						top: section.getBoundingClientRect().top - 70, // 70 is the global nav height
 						behavior: "smooth"
 					});
-				}],
-				["mouseover", function() {
-					// DEBUG EVENTS
-					console.log(section);
 				}]
 			]
 		});
 		menu.appendChild(node);
+	});
+	// change focused state marker based on document position
+	updateNavFocusMarker();
+	["hashchange", "scroll"].forEach(function(eventType) {
+		addEventListener(eventType, function() {
+			console.log(eventType);
+			updateNavFocusMarker();
+		});
 	});
 }());
 
@@ -178,7 +214,6 @@ document.querySelector("#global-header svg").addEventListener("click", function(
 		}),
 		gn = document.querySelector("#global-navigation");
 	function updateBtn() {
-		//const isBelowHeading = gn.getBoundingClientRect().bottom <= 0; // if scrolled/jumped past the heading
 		const isBelowHeading = document.body.getBoundingClientRect().top <= 70;
 		btn.classList.toggle("back-to-top-hidden", !isBelowHeading);
 	}
@@ -188,7 +223,6 @@ document.querySelector("#global-header svg").addEventListener("click", function(
 	});
 	document.body.appendChild(btn);
 }());
-
 
 
 /* for debugging */

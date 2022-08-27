@@ -101,7 +101,7 @@ a:hover {
 	transform: translateX(0);
 }
 .global-navigation-menu-item {
-	padding: 10px;
+	padding: 10px 40px;
 	border-top: 1px solid #ccc;
 	font-size: 30px;
 	line-height: 2em;
@@ -109,7 +109,10 @@ a:hover {
 	cursor: pointer;
 }
 .global-navigation-menu-item:hover {
-	background: #eee;
+	background-color: #eee;
+}
+.global-navigation-menu-item-focused {
+	background-image: radial-gradient(circle at 20px 40px, #999, #999 8px, #9990 9px);
 }
 
 /* ================================ *\
