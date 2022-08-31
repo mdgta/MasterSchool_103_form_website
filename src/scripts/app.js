@@ -159,7 +159,7 @@ el.applyData = function(node, data) {
 
 // check if in mobile/tablet OR desktop
 function isLargeScreen() {
-	return screen.availWidth >= 600;
+	return screen.availWidth >= 720;
 }
 
 // change marker on selected top navigation links based on scroll position

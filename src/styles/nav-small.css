@@ -10,7 +10,13 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 100%;
+	height: 70px;
+	position: absolute;
+	z-index: 3;
 	padding: 5px 10px;
+	/* background just needed for mobile (to cover the secondary header during menu open) */
+	background: linear-gradient(to bottom, #fafafa, #eee);
 }
 #global-header svg {
 	cursor: pointer;
@@ -43,14 +49,15 @@
 /* global header - menu items */
 
 #global-header-secondary {
-	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: calc(100vh - 70px);
+	top: calc(140px - 100vh);
+	z-index: 2;
 }
-#global-navigation {
-	transform: translateY(-100vh);
-	transition: transform 200ms;
-}
-.global-header-menu-open #global-navigation {
-	transform: translateX(0);
+.global-header-menu-open #global-header-secondary {
+	top: 70px;
+	transition: top 200ms;
 }
 .global-navigation-menu-item {
 	padding: 10px 40px;
