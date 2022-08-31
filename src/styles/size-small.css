@@ -55,6 +55,12 @@ a:hover {
 	width: 100vw;
 	height: 100vh;
 }
+#global-header-primary {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 10px;
+}
 #global-header svg {
 	cursor: pointer;
 }
@@ -82,17 +88,12 @@ a:hover {
 	stroke-width: 4px;
 	transform: rotate(270deg);
 }
-#global-header-primary {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 5px 10px;
-}
+
+/* global header - menu items */
+
 #global-header-secondary {
 	overflow: hidden;
 }
-
-/* global header - menu items */
 #global-navigation {
 	transform: translateY(-100vh);
 	transition: transform 200ms;
@@ -107,12 +108,10 @@ a:hover {
 	line-height: 2em;
 	color: #666;
 	cursor: pointer;
-}
-.global-navigation-menu-item:hover {
-	background-color: #eee;
+	transition: box-shadow 300ms;
 }
 .global-navigation-menu-item-focused {
-	background-image: radial-gradient(circle at 20px 40px, #999, #999 8px, #9990 9px);
+	box-shadow: 0 0 5px 2px #999f inset;
 }
 
 /* ================================ *\
@@ -130,8 +129,10 @@ a:hover {
 	border-radius: 6px;
 }
 
-
-
+/* sections in general */
+#layout-container > section p {
+	margin: 4px 10px;
+}
 
 
 

@@ -143,18 +143,17 @@ function updateNavFocusMarker() {
 	//for (let i = sections.length - 1; 0 <= i; i--) {
 		section = sections[i];
 		bbox = section.getBoundingClientRect();
-		//console.log(i + "/" + sections.length, bbox.top >= 70, bbox.top, section);
-		if (bbox.top + bbox.height >= 70) {
+		if (bbox.top + bbox.height >= getGlobalHeaderHeight()) {
 			// last scrolled-past section- mark as current
 			menuItems[i].classList.add("global-navigation-menu-item-focused");
 			break;
-			//DEBUG
-			//section.style.background = "#0c0";
-		} else {
-			//DEBUG
-			//section.style.background = "#c00";
 		}
 	}
+}
+
+// get global header height
+function getGlobalHeaderHeight() {
+	return screen.availWidth >= 600 ? 70 : 70;
 }
 
 /* ================================ *\
@@ -175,7 +174,7 @@ function updateNavFocusMarker() {
 					document.querySelector("#global-header").classList.remove("global-header-menu-open");
 					// scroll to position
 					scrollBy({
-						top: section.getBoundingClientRect().top - 70, // 70 is the global nav height
+						top: section.getBoundingClientRect().top - getGlobalHeaderHeight(), // minus the global nav height
 						behavior: "smooth"
 					});
 				}]
@@ -214,7 +213,7 @@ document.querySelector("#global-header svg").addEventListener("click", function(
 		}),
 		gn = document.querySelector("#global-navigation");
 	function updateBtn() {
-		const isBelowHeading = document.body.getBoundingClientRect().top <= 70;
+		const isBelowHeading = document.body.getBoundingClientRect().top <= getGlobalHeaderHeight();
 		btn.classList.toggle("back-to-top-hidden", !isBelowHeading);
 	}
 	updateBtn();
