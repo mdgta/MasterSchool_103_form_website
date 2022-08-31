@@ -8,18 +8,34 @@ Used as resources Masterschool's program (including Udacity and PluralSight) and
 
 CSS-trics and their [article](https://css-tricks.com/svg-properties-and-css/#svg-shape-morphing) about the use of CSS properties as SVG attributes to get the path's `d` also working in my CSS.
 
-Also thanks to Rahim Afful-Brown for helping locating a data type check issue in `makeEl` on child elements after one of the commits.
+Also thanks to Rahim Afful-Brown for helping locating a data type check issue in `el.mk` on child elements after one of the commits.
 
-## main.js
+## app.js
 
-`makeEl` syntax:
+### `el` object
+
+The `el` object combines a few functions for creating a new element (see "*el.mk examples*" section).
+
+| Function | Use |
+| - | - |
+| el.mk(tagName, data) | Tag name; Data to apply (optional) |
+| el.applyData(node, data) | Node to apply; Data to apply |
+| el.addAttributes(node, attrs) | Node to apply; Attributes object (key=attribute, value=value) |
+| el.bindEvents(node, events) | Node to apply; Array of events- each item is an array that will be used as the arguments of `addEventListener` |
+| el.txt(text) | Text node content (string/number) |
+| el.isValidText(text) | `true` if argument is valid value for text node, otherwise `false` |
+
+
+### `el.mk` examples
+
+`el.mk` syntax:
 
 ```
 // just tag name
-makeEl("span");
+el.mk("span");
 
 // adding some data
-makeEl("span", {
+el.mk("span", {
 	// data goes here
 });
 ```
@@ -44,7 +60,7 @@ Valid properties in the data object:
 For example:
 
 ```
-const testDiv = makeEl("div", {
+const testDiv = el.mk("div", {
     id: "potato",
     class: "my-class",
     attrs: {
@@ -53,7 +69,7 @@ const testDiv = makeEl("div", {
     },
     childs: [
         "I will be converted into a text node",
-        makeEl("span", {
+        el.mk("span", {
             style: "color: #c00; background: #ff0;",
             text: "I'm a span!",
             events: [

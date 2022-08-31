@@ -1,0 +1,66 @@
+/* ================================ *\
+	# global header
+\* ================================ */
+
+#global-header.global-header-menu-open {
+	width: 100vw;
+	height: 100vh;
+}
+#global-header-primary {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 10px;
+}
+#global-header svg {
+	cursor: pointer;
+}
+#global-header rect {
+	width: 34px;
+	height: 34px;
+	rx: 12px;
+	ry: 12px;
+	x: 3px;
+	y: 3px;
+	fill: #eee;
+	stroke: #bbb;
+	stroke-width: 2px;
+}
+#global-header path {
+	d: path('M 11 11 l 18 0 m-18 9 l 18 0 m -18 9 l 18 0');
+	stroke: #bbb;
+	stroke-width: 3px;
+	stroke-linecap: round;
+	transform-origin: 20px 20px;
+	transition: all 300ms;
+}
+#global-header.global-header-menu-open path {
+	d: path('M 11 11 l 18 18 m-9 -9 l 0 0 m -9 9 l 18 -18');
+	stroke-width: 4px;
+	transform: rotate(270deg);
+}
+
+/* global header - menu items */
+
+#global-header-secondary {
+	overflow: hidden;
+}
+#global-navigation {
+	transform: translateY(-100vh);
+	transition: transform 200ms;
+}
+.global-header-menu-open #global-navigation {
+	transform: translateX(0);
+}
+.global-navigation-menu-item {
+	padding: 10px 40px;
+	border-top: 1px solid #ccc;
+	font-size: 30px;
+	line-height: 2em;
+	color: #666;
+	cursor: pointer;
+	transition: box-shadow 300ms;
+}
+.global-navigation-menu-item-focused {
+	box-shadow: 0 0 5px 2px #999f inset;
+}

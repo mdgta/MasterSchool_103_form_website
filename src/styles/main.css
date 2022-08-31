@@ -1,4 +1,9 @@
+/* small screens (mobile & tablet) */
 @import url('./size-small.css') screen;
-@import url('./size-mid.css') screen and (min-width: 600px);
+@import url('./size-mid.css') screen and (min-width: 500px);
+@import url('./nav-small.css') screen and (max-width: 719px);
+/* large screens (desktop) */
 @import url('./size-large.css') screen and (min-width: 720px);
+@import url('./nav-large.css') screen and (min-width: 720px);
+/* fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
