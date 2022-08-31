@@ -1,43 +1,4 @@
 /* ================================ *\
-	# defaults
-\* ================================ */
-:root {
-	font: 18px/1.5em 'Open Sans', Arial, sans-serif;
-}
-body {
-	margin: 0;
-	background: repeating-linear-gradient(to right, #fafafa, #fafafa 4px, #f8f8f8 4px, #f8f8f8 8px);
-}
-
-/* reset spacings */
-*, *::before, *::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-h1, h2, h3, h4, h5, h6 {
-	margin: 5px 3px;
-	padding: 0.2em 20px;
-}
-
-/* links */
-a, a:visited {
-	text-decoration: none;
-	color: #6bf;
-}
-a:hover {
-	color: #38c;
-}
-
-/* reset list elements that don't have class="list" */
-:where(ol, ul, menu):not(.list) {
-	list-style-type: none;
-}
-:where(ol, ul, menu).list {
-	padding-left: 40px;
-}
-
-/* ================================ *\
 	# global header
 \* ================================ */
 
@@ -46,6 +7,7 @@ a:hover {
 	height: 70px;
 	position: fixed;
 	top: 0;
+	z-index: 1;
 	background: linear-gradient(to bottom, #fafafa, #eee);
 	border-bottom: 1px solid #ddd;
 	transition: height 200ms;
@@ -58,7 +20,7 @@ a:hover {
 \* ================================ */
 
 #layout-container {
-	margin: 80px 0 0 0;
+	margin: 80px 10px 0;
 	/*background: #fff8;*/
 }
 
@@ -69,13 +31,109 @@ a:hover {
 }
 
 /* sections in general */
-#layout-container > section p {
+#layout-container > section {
+	margin: 20px 0;
+}
+section p {
 	margin: 4px 10px;
 }
 
+/* intro section */
+#layout-site-intro {
+	display: grid;
+	grid: auto auto / 1fr;
+	border-radius: 20px;
+	overflow: hidden;
+}
+.layout-site-intro-content {
+	background: linear-gradient(#8bb77f, #cbe6c4);
+}
+.layout-site-intro-image {
+	position: relative;
+}
+/*
+.layout-site-intro-image picture {
+	display: block;
+	margin-left: -50%;
+}
+.layout-site-intro-image img {
+	display: block;
+}
+*/
 
+/* news section */
 
+.news-item + .news-item::before {
+	content: " ";
+	display: block;
+	height: 4px;
+	margin: 10px 0;
+	background: linear-gradient(-35deg, #f88 13.29%, #ff8 15.29%, #ff8 27.57%, #8f8 29.57%, #8f8 41.86%, #8ff 43.86%, #8ff 56.14%, #88f 58.14%, #88f 70.43%, #f8f 72.43%, #f8f 84.71%, #f88 86.71%);
+}
 
+.news-item h2 {
+	margin: 0;
+	padding: 0;
+	border-bottom: 2px solid #ccf;
+	line-height: 1.5em;
+	font-size: 20px;
+}
+
+.news-item a {
+	color: #369;
+}
+
+.news-item header p {
+	font-size: 12px;
+	font-weight: bold;
+	font-style: italic;
+	color: #99d;
+}
+
+.news-item p {
+	margin: 0;
+	font-style: italic;
+	font-size: smaller;
+}
+
+.news-item header p a {
+	color: #99d;
+}
+
+.news-item header p a:hover {
+	color: #88a;
+}
+
+/* dynamic image container */
+.dynamic-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 4px;
+}
+.dynamic-container a {
+	color: #666;
+}
+.dynamic-container a:hover {
+	opacity: 0.8;
+}
+.dynamic-container div {
+	overflow: hidden;
+	background: #def;
+	border-radius: 10px;
+}
+.dynamic-container h2, 
+.dynamic-container p {
+	margin: 0 10px;
+	padding: 0;
+	font-size: 10px;
+	line-height: 1.4em;
+}
+.dynamic-container p {
+	margin-bottom: 10px;
+}
+.dynamic-container img {
+	width: 100%;
+}
 
 /* form */
 .subscription-form {

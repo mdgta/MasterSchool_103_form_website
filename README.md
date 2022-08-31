@@ -10,6 +10,11 @@ CSS-trics and their [article](https://css-tricks.com/svg-properties-and-css/#svg
 
 Also thanks to Rahim Afful-Brown for helping locating a data type check issue in `el.mk` on child elements after one of the commits.
 
+## Images
+
+- Main image- [Gladys Levery](https://gladyslevery.blogspot.com/2021/06/anime-collage-wallpaper-assorted-title.html)
+* One Punch Man- [thefandom.net](https://thefandom.net/one-punch-man-live-action/)
+
 ## app.js
 
 ### `el` object

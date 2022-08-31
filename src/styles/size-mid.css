@@ -9,7 +9,10 @@
 }("6bf", "fbf", "fff"));
 */
 
-
+/* intro section */
+#layout-site-intro {
+	grid: auto / 1fr 1fr;
+}
 
 /* form */
 .subscription-form {

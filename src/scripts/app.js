@@ -157,6 +157,11 @@ el.applyData = function(node, data) {
 
 /* miscellaneous functions */
 
+// check if in mobile/tablet OR desktop
+function isLargeScreen() {
+	return screen.availWidth >= 600;
+}
+
 // change marker on selected top navigation links based on scroll position
 function updateNavFocusMarker() {
 	const currMarked = document.querySelector(".global-navigation-menu-item-focused"),
@@ -183,7 +188,53 @@ function updateNavFocusMarker() {
 
 // get global header height
 function getGlobalHeaderHeight() {
-	return screen.availWidth >= 600 ? 70 : 70;
+	return isLargeScreen() ? 70 : 70;
+}
+
+// insert dynamic manga items to container
+function populateDynamicContainer(container, data) {
+	const frag = popFrag = document.createDocumentFragment();
+	data.forEach(function(item) {
+		/*
+			create element:
+			<div>
+				<img />
+				<h2>One Punch Man</h2>
+				<p>
+					Chapter 170<br />
+					<time datetime="TIMESTAMP">DATE</time>
+				</p>
+			</div>
+		*/
+		const a = el.mk("a"),
+			div = el.mk("div"),
+			h2 = el.mk("h2", {
+				text: item.title
+			}),
+			childsArray = item.hasOwnProperty("time") ? [] : [],
+			dateObj = new Date(item.date),
+			p = el.mk("p", {
+				childs: [
+					"Chapter " + item.chapter,
+					el.mk("br"),
+					el.mk("time", {
+						text: dateObj.toString().match(/[a-z]+ \d+/i)[0],
+						attrs: {
+							datetime: dateObj.toJSON()
+						}
+					})
+				]
+			}),
+			img = el.mk("img");
+		img.src = item.img;
+		div.appendChild(img);
+		div.appendChild(h2);
+		div.appendChild(p);
+		a.href = item.url;
+		a.appendChild(div);
+		frag.appendChild(a);
+	});
+	container.appendChild(frag);
 }
 
 /* ================================ *\
@@ -192,7 +243,8 @@ function getGlobalHeaderHeight() {
 
 /* generate menu links */
 (function() {
-	const menu = document.querySelector("#global-navigation ul");
+	const menu = document.querySelector("#global-navigation ul"),
+		frag = document.createDocumentFragment();
 	// create links to all the [data-section] elements
 	document.querySelectorAll("[data-section]").forEach(function(section) {
 		let node = el.mk("li", {
@@ -210,16 +262,110 @@ function getGlobalHeaderHeight() {
 				}]
 			]
 		});
-		menu.appendChild(node);
+		frag.appendChild(node);
 	});
+	menu.appendChild(frag);
 	// change focused state marker based on document position
 	updateNavFocusMarker();
 	["hashchange", "scroll"].forEach(function(eventType) {
 		addEventListener(eventType, function() {
-			console.log(eventType);
 			updateNavFocusMarker();
 		});
 	});
+}());
+
+/* add sections for recent/popular */
+(function() {
+	const recents = [
+		{
+			title: "One Punch Man",
+			chapter: "170",
+			date: 1661957001043,
+			url: "/manga/831/chapters/170",
+			img: "src/images/opm.jpg",
+			final: true
+		},
+		{
+			title: "One Punch Man",
+			chapter: "169",
+			date: 1661352201043,
+			url: "/manga/831/chapters/169",
+			img: "src/images/opm.jpg"
+		},
+		{
+			title: "One Punch Man",
+			chapter: "168",
+			date: 1660747401043,
+			url: "/manga/831/chapters/168",
+			img: "src/images/opm.jpg"
+		},
+		{
+			title: "One Punch Man",
+			chapter: "167",
+			date: 1660142601043,
+			url: "/manga/831/chapters/167",
+			img: "src/images/opm.jpg"
+		},
+		{
+			title: "One Punch Man",
+			chapter: "166",
+			date: 1659537801043,
+			url: "/manga/831/chapters/166",
+			img: "src/images/opm.jpg"
+		},
+		{
+			title: "One Punch Man",
+			chapter: "165",
+			date: 1658933001043,
+			url: "/manga/831/chapters/165",
+			img: "src/images/opm.jpg"
+		},
+		{
+			title: "One Punch Man",
+			chapter: "164",
+			date: 1658328201043,
+			url: "/manga/831/chapters/164",
+			img: "src/images/opm.jpg"
+		},
+		{
+			title: "One Punch Man",
+			chapter: "163.5",
+			date: 1657723401043,
+			url: "/manga/831/chapters/163-5",
+			img: "src/images/opm.jpg"
+		},
+		{
+			title: "One Punch Man",
+			chapter: "163",
+			date: 1657118601043,
+			url: "/manga/831/chapters/163",
+			img: "src/images/opm.jpg"
+		},
+		{
+			title: "One Punch Man",
+			chapter: "162",
+			date: 1656513801043,
+			url: "/manga/831/chapters/162",
+			img: "src/images/opm.jpg"
+		},
+		{
+			title: "One Punch Man",
+			chapter: "161",
+			date: 1655909001043,
+			url: "/manga/831/chapters/161",
+			img: "src/images/opm.jpg"
+		},
+		{
+			title: "One Punch Man",
+			chapter: "160",
+			date: 1655304201043,
+			url: "/manga/831/chapters/160",
+			img: "src/images/opm.jpg"
+		}
+	];
+	const populars = recents; // will make another object later if i have some free time... and feel like it :P
+	populateDynamicContainer(document.querySelector("#layout-site-popular .dynamic-container"), populars);
+	populateDynamicContainer(document.querySelector("#layout-site-recent .dynamic-container"), recents);
 }());
 
 /* mobile toggle menu */
@@ -253,6 +399,15 @@ document.querySelector("#global-header svg").addEventListener("click", function(
 	document.body.appendChild(btn);
 }());
 
+/* close mobile menu when switching to wider view (can happen when switching to landscape view) */
+(function() {
+	const header = document.querySelector("#global-header");
+	addEventListener("resize", function() {
+		if (isLargeScreen()) {
+			header.classList.remove("global-header-menu-open");
+		}
+	});
+}());
 
 /* for debugging */
 (function() {

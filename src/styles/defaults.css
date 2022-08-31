@@ -1,0 +1,41 @@
+/* ================================ *\
+	# defaults
+\* ================================ */
+:root {
+	font: 18px/1.5em 'Open Sans', Arial, sans-serif;
+    --theme-bg-1: #fafafa;
+    --theme-bg-2: #f8f8f8;
+    --theme-bg-band-size: 4px;
+}
+body {
+	margin: 0;
+	background: repeating-linear-gradient(to right, var(--theme-bg-1), var(--theme-bg-1) var(--theme-bg-band-size), var(--theme-bg-2) var(--theme-bg-band-size), var(--theme-bg-2) calc(var(--theme-bg-band-size) * 2));
+}
+
+/* reset spacings */
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 5px 3px;
+	padding: 0.2em 20px;
+}
+
+/* links */
+a, a:visited {
+	text-decoration: none;
+	color: #6bf;
+}
+a:hover {
+	color: #38c;
+}
+
+/* reset list elements that don't have class="list" */
+:where(ol, ul, menu):not(.list) {
+	list-style-type: none;
+}
+:where(ol, ul, menu).list {
+	padding-left: 40px;
+}

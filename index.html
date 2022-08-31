@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Landing Page</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/styles/main.css" />
+	<title>Landing Page</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="src/styles/main.css" />
+	<link rel="apple-touch-icon" href="src/images/favicon.png" />
+	<link rel="icon" href="src/images/favicon.ico" />
 </head>
 <body>
 
 <!--
-    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    to-do:
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-    construct the navigational links from all the defined sections
-    use data-section="Navigation Text" and id="ref-for-anchor" ( document.querySelector("[data-section]") )
+	to-do:
 
-    #global-header-secondary is still visible when the menu is hidden
+	construct the navigational links from all the defined sections
+	use data-section="Navigation Text" and id="ref-for-anchor" ( document.querySelector("[data-section]") )
 
-    add aria form
+	#global-header-secondary is still visible when the menu is hidden
 
-    remove class "global-header-menu-open" if the screen size changes-
-    obviosuly on responsive mode in the browser,
-    but especially for mobile users who switch to landscape
+	add aria form
 
+	remove class "global-header-menu-open" if the screen size changes-
+	obviosuly on responsive mode in the browser,
+	but especially for mobile users who switch to landscape
+
+	search for all the "test" and "debug" comments in every css/js file
+
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
 
 
@@ -33,112 +39,177 @@
 
 <!-- top global header -->
 <header id="global-header">
-    <!-- logo and mobile button area -->
-    <section id="global-header-primary">
-        <a href="">
-            <picture id="global-logo">
-                <source srcset="src/images/ugly-af-logo.svg 250w" type="image/svg+xml" />
-                <img alt="Logo" width="200px" />
-            </picture>
-        </a>
-        <svg width="40" height="40" viewport="0 0 40 40">
-            <rect width="34" height="34" rx="12" ry="12" x="3" y="3" class="global-header-menu-close-btn" />
-            <!-- <line x1="0" y1="0" x2="40" y2="40" stroke="#f00" /> -->
-            <path />
-        </svg>
-    </section>
-    <!-- navigational area -->
-    <section id="global-header-secondary">
-        <nav id="global-navigation">
-            <ul></ul>
-        </nav>
-    </section>
+	<!-- logo and mobile button area -->
+	<section id="global-header-primary">
+		<a href="">
+			<picture id="global-logo">
+				<source srcset="src/images/ugly-af-logo.svg 250w" type="image/svg+xml" />
+				<img alt="Logo" width="200px" />
+			</picture>
+		</a>
+		<svg width="40" height="40" viewport="0 0 40 40">
+			<rect width="34" height="34" rx="12" ry="12" x="3" y="3" class="global-header-menu-close-btn" />
+			<!-- <line x1="0" y1="0" x2="40" y2="40" stroke="#f00" /> -->
+			<path />
+		</svg>
+	</section>
+	<!-- navigational area -->
+	<section id="global-header-secondary">
+		<nav id="global-navigation">
+			<ul></ul>
+		</nav>
+	</section>
 </header>
 
 <!-- main layout grouping -->
 <div id="layout-container">
 
 
-    <!-- main header -->
-    <header id="layout-site-header">
-        <h1>Welcome,</h1>
-        <h2>Some cheesy subtext</h2>
-    </header>
-    <!-- sub-header navigational links -->
-    <header id="layout-site-header">
+	<!-- intro section (not tabbed) -->
+	<section id="layout-site-intro">
+		<div class="layout-site-intro-image">
+			<picture>
+				<img src="src/images/main.png" alt="Living Room" width="100%" />
+			</picture>
+		</div>
+		<section class="layout-site-intro-content">
+			<h3>QUALITY DESIGN FOR ALL</h3>
+			<h2>we create spaces, build dreams and shape environments.</h2>
+			<p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+		</section>
+	</section>
 
-    </header>
 
-    <!-- testimonials -->
-    <section id="layout-site-gallery" data-section="Projects gallery">
-        <header>
-            <h2>View our projects</h2>
-        </header>
-        <p>
-            We take our projects very seriously. Our goal is to make the best result for our clients, in the most professional manner.
-        </p>
-        <p>
-            Here are previews of just some of our recent projects.
-        </p>
-        <nav class="gallery">
-            <ul>
-            </ul>
-        </nav>
-    </section>
+	<!-- news -->
+	<section id="layout-site-news" data-section="Site News">
+		<header>
+			<h2>Latest News</h2>
+		</header>
+		<article class="news-container">
+			<section class="news-item">
+				<header>
+					<h2>
+						<a href="blog/2022/08/one-punch-man-season-3-what-we-do-know">One Punch Man Season 3: What We DO Know</a>
+					</h2>
+					<p>
+						<a href="u/43">DexT3x</a>, <time datetime="2022-08-25">August 25, 2022</time>
+					</p>
+				</header>
+				<p>
+					<a href="blog/2022/08/one-punch-man-season-3-what-we-do-know">
+						With the latest news regarding the next season of the Anime, we have collected all the known information and updates.
+					</a>
+				</p>
+			</section>
+			<section class="news-item">
+				<header>
+					<h2>
+						<a href="blog/2022/08/top-10-lgbtq-manhwa-to-read-in-2022">Top 10 LGBTQ+ Manga and Manhwa to Read in 2022</a>
+					</h2>
+					<p>
+						<a href="u/618">GFanDipp</a>, <time datetime="2022-08-19">August 19, 2022</time>
+					</p>
+				</header>
+				<p>
+					<a href="blog/2022/08/top-10-lgbtq-manhwa-to-read-in-2022">
+						Today, with LGBTQ+ Manga and Manhwa being more widespread and popular than ever, here are 10 of our favorite picks.
+					</a>
+				</p>
+			</section>
+			<section class="news-item">
+				<header>
+					<h2>
+						<a href="blog/2022/07/urgent-potential-security-issue">URGENT! Potential Security Issues</a>
+					</h2>
+					<p>
+						<a href="u/2">Jaeger2</a>, <time datetime="2022-08-25">July 28, 2022</time>
+					</p>
+				</header>
+				<p>
+					<a href="blog/2022/07/urgent-potential-security-issue">
+						URGENT NOTICE! Due to secrity concerns, we ask you to update your passwords. A temporary password has been sent to E-mail-confirmed users.
+					</a>
+				</p>
+			</section>
+		</article>
+	</section>
 
-    <!-- testimonials -->
-    <section id="layout-site-testimonials" data-section="Testimonials">
-        <header>
-            <h2>Testimonials</h2>
-        </header>
-        <p>
-            blah blah testimonials blah blah
-        </p>
-    </section>
 
-    <!-- subscription box -->
-    <section id="layout-site-subscription" data-section="Subscribe">
-        <header>
-            <h2>Subscribe for more!</h2>
-        </header>
-        <form method="POST" class="subscription-form">
-            <fieldset>
-                <label>
-                    Your name<span class="form-field-required"></span>
-                    <input type="text" name="sbsc-fullname" placeholder="Write your name here" required />
-                </label>
-                <label>
-                    E-mail address<span class="form-field-required"></span>
-                    <input type="email" name="sbsc-email" placeholder="Write your E-mail here" required />
-                </label>
-                <label>
-                    Phone number
-                    <!--
-                        just gonna use common israeli number formats (all minus signs optional)
-                        0x-xxx-xxxx
-                        05x-xxx-xxxx
-                        1-xxx-xxx-xxx
-                    -->
-                    <input type="tel" pattern="0\d{1,2}-?\d{3}-?\d{4}|1(?:-?\d{3}){3}" name="sbsc-phone" placeholder="Write your phone number here" />
-                </label>
-            </fieldset>
-            <fieldset>
-                <label>
-                    Subject<span class="form-field-required"></span>
-                    <input type="text" name="sbsc-subject" placeholder="Write your subject here" required />
-                </label class="form-field-required">
-                <label>
-                    Message<span class="form-field-required"></span>
-                    <textarea name="sbsc-textbody" placeholder="Write your project information here" required></textarea>
-                </label>
-                <button>Subscribe</button>
-            </fieldset>
-        </form>
-    </section>
-    <footer id="layout-site-footer">
+	<!-- recent -->
+	<section id="layout-site-recent" data-section="Most Recent">
+		<header>
+			<h2>Most Recent</h2>
+		</header>
+		<section class="dynamic-container">
+		</section>
+	</section>
 
-    </footer>
+	<!-- popular -->
+	<section id="layout-site-popular" data-section="Popular">
+		<header>
+			<h2>Popular</h2>
+		</header>
+		<section class="dynamic-container">
+		</section>
+	</section>
+
+	<!-- subscription box -->
+	<section id="layout-site-subscription" data-section="Subscribe">
+		<header>
+			<h2>Subscribe for more!</h2>
+		</header>
+		<form method="POST" class="subscription-form">
+			<fieldset>
+				<label>
+					Your name<span class="form-field-required"></span>
+					<!--
+						not gonna check pattern, i've seen enough examples of people being unable to register
+						because their names aren't "european/american enough" and the devs just didn't consider this
+
+						same reason why i didn't split it to first/last name, some people don't have a last name
+						i mean, /.+( .+)*/ would match even elon musk's kid, but at this point it's become just so
+						unspecific it's just stupid
+					-->
+					<input type="text" name="sbsc-fullname" placeholder="Write your name here" required />
+				</label>
+				<label>
+					E-mail address<span class="form-field-required"></span>
+					<!--
+						seriously, i'm not gonna use pattern here either, that's bad practice:
+						https://www.loqate.com/resources/blog/3-reasons-why-you-should-stop-using-regex-email-validation/
+					-->
+					<input type="email" name="sbsc-email" placeholder="Write your E-mail here" required />
+				</label>
+				<label>
+					Phone number
+					<!--
+						just gonna use common israeli number formats (all minus signs optional)
+						0x-xxx-xxxx
+						05x-xxx-xxxx
+						1-xxx-xxx-xxx
+					-->
+					<input type="tel" pattern="0\d{1,2}-?\d{3}-?\d{4}|1(?:-?\d{3}){3}" name="sbsc-phone" placeholder="Write your phone number here" />
+				</label>
+			</fieldset>
+			<fieldset>
+				<label>
+					Subject<span class="form-field-required"></span>
+					<input type="text" name="sbsc-subject" placeholder="Write your subject here" required />
+				</label class="form-field-required">
+				<label>
+					Message<span class="form-field-required"></span>
+					<textarea name="sbsc-textbody" placeholder="Write your project information here" required></textarea>
+				</label>
+				<button>Subscribe</button>
+			</fieldset>
+		</form>
+	</section>
 </div>
+
+<!-- site footer -->
+<footer id="layout-site-footer">
+
+</footer>
 
 <!-- script -->
 <script src="src/scripts/app.js"></script>
