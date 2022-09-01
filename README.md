@@ -16,6 +16,8 @@ Adjustable image cropping regardless of aspect-ratio [by Always Helping](https:/
 
 Manga/Manhwa titles from [Manga Read](https://www.mangaread.org/), especially for the recents section. I mean, I like reading them, but there's a limit of how much I can recall ¯\\\_(ツ)\_/¯ Well, at least recall for a professiona project, if you know what I mean ( ͡° ͜ʖ ͡°)
 
+Please note that the links to the manga are just made-up, most websites also have links in a similar format so I just used some random URL paths to make it feel more realistic.
+
 ## Images
 
 - SVG images - original content (lol imagine calling a few vector lines "original")
@@ -39,7 +41,11 @@ Manga/Manhwa titles from [Manga Read](https://www.mangaread.org/), especially fo
 - Pian Pian - [Nerdlog](https://www.nerdlog.it/haesin-young-pian-pian-minaccia-azione-legale-contro-mangagogo/)
 - Nano Machine - [Manga Read](https://www.mangaread.org/manga/nano-machine/)
 
-## app.js
+## src/scripts/content.json
+I used random timestamps from the past week just as an example (and a one-week-gap for the Featured). Some have the `"end"` property to indicate that the series has ended, but other than that the structuring is pretty self-descriptive.
+
+
+## src/scripts/app.js
 
 ### `el` object
 

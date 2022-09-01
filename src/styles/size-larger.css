@@ -1,0 +1,21 @@
+/* ================================ *\
+	# main area
+\* ================================ */
+
+/* layout container */
+#layout-container {
+	margin: 80px 100px 0;
+}
+
+/* dynamic container */
+.dynamic-container {
+	grid-template-columns: repeat(4, 1fr);
+}
+@media (min-width: 1400px) {
+    #layout-container {
+        margin: 80px 200px 0;
+    }
+	.dynamic-container {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}

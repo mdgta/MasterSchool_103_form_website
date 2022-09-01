@@ -1,17 +1,56 @@
+/* ================================ *\
+	# main area
+\* ================================ */
+
+/* layout container */
 #layout-container {
-	margin: 80px 100px 0 100px;
+	margin: 80px 10% 0;
 }
 
+/* intro section */
+#layout-site-intro {
+	grid: auto / 40% 1fr;
+}
+
+/* dynamic container */
 .dynamic-container {
 	grid-template-columns: repeat(3, 1fr);
 }
-@media (min-width: 1000px) {
-	.dynamic-container {
-		grid-template-columns: repeat(4, 1fr);
-	}
+
+
+/* news section on desktop */
+/*
+.news-container {
+	display: flex;
+	gap: 10px;
 }
-@media (min-width: 1400px) {
-	.dynamic-container {
-		grid-template-columns: repeat(6, 1fr);
-	}
+.news-item + .news-item::before {
+	display: none;
+}
+.news-item header {
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+*/
+.news-container {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+.news-item {
+	flex: 1;
+}
+.news-item + .news-item::before {
+	display: none;
+}
+.news-container header {
+	height: 10vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+.news-container h2 {
+	font-size: 1.8vw;
 }

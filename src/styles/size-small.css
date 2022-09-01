@@ -38,6 +38,18 @@ section p {
 	margin: 4px 10px;
 }
 
+/*
+	that section-in-screen feature that the asked... tbh that's kinda stupid,
+	what am i supposed to do, un-style stuff outside of the screen? :/ makes no sense
+*/
+[data-section] {
+	transition: background 1s cubic-bezier(0, 0, 0.5, 1);
+	background: #ff0;
+}
+.section-in-view {
+	background: #ff00;
+}
+
 /* intro section */
 #layout-site-intro {
 	display: grid;
@@ -60,7 +72,6 @@ section p {
 
 
 /* news section */
-
 .news-item + .news-item::before {
 	content: " ";
 	display: block;
@@ -154,21 +165,23 @@ section p {
 }
 .subscription-form :is(input, textarea) {
 	width: 100%;
-}
-.subscription-form textarea {
-	resize: none;
+	height: 2em;
+	padding: 0 10px;
+	background: #eef8ff;
+	border: 1px solid #aaa;
+	font: normal 14px/1.8em 'Open Sans', Arial, sans-serif;
 }
 .subscription-form input:invalid {
 	outline: 2px solid #c606;
 	outline-offset: 2px;
 }
+[name="sbsc-textbody"] {
+	resize: none;
+	transition: height 500ms 100ms ease-in-out;
+}
 [name="sbsc-textbody"]:focus {
 	height: 300px;
-	transition: all 300ms;
-}
-[name="sbsc-textbody"] {
-	height: 20px;
-	transition: all 500ms 100ms ease-in-out;
+	transition: height 300ms;
 }
 
 /* back to top button */

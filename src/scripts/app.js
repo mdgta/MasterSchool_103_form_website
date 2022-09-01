@@ -189,6 +189,27 @@ function isLargeScreen() {
 	return screen.availWidth >= 720;
 }
 
+// check if 2 items overlap along a given axis
+function isIntersectingAlongAxis(a1, a2, b1, b2) {
+	// a1 and a1 are the boundaries of 'item a', b1 and b2 are the boundaries of 'item b'
+	// b2 needs to be > a1 [and] b1 needs to be < a2 to confirm intersection
+	// works in cases of partial intersection, 'b' totally enclused in 'a' (b smaller along the axis) or 'b' totally engulfing 'a' (b larger along the axis)
+	return b2 > a1 && b1 < a2;
+}
+
+// mark sections on screen
+// used as argument just so there's no need to querySelectorAll each time- stored as variable in the scope of the function call
+function highlightVisibleSections(sectionList) {
+	const yStart = getGlobalHeaderHeight(); // don't want to highlight if someothing is only visible behind the top navigation bar
+	sectionList.forEach(function(section) {
+		const bbox = section.getBoundingClientRect(),
+			// only need to check vertical axis since sections retain horizontal positioning
+			isInView = isIntersectingAlongAxis(yStart, screen.availHeight, bbox.top, bbox.bottom);
+		// toggle class, use returned boolean view to force-add/force-remove class
+		section.classList.toggle("section-in-view", isInView);
+	});
+}
+
 // change marker on selected top navigation links based on scroll position
 function updateNavFocusMarker() {
 	const currMarked = document.querySelector(".global-navigation-menu-item-focused"),
@@ -272,11 +293,13 @@ function populateDynamicContainer(container, data) {
 \* ================================ */
 
 /* generate menu links */
+/* also implement 'section-in-view' class to sections on screen */
 (function() {
 	const menu = document.querySelector("#global-navigation ul"),
-		frag = document.createDocumentFragment();
+		frag = document.createDocumentFragment(),
+		sections = document.querySelectorAll("[data-section]");
 	// create links to all the [data-section] elements
-	document.querySelectorAll("[data-section]").forEach(function(section) {
+	sections.forEach(function(section) {
 		let node = el.mk("li", {
 			class: "global-navigation-menu-item",
 			text: section.dataset.section,
@@ -298,9 +321,11 @@ function populateDynamicContainer(container, data) {
 	menu.appendChild(frag);
 	// change focused state marker based on document position
 	updateNavFocusMarker();
+	highlightVisibleSections(sections);
 	["hashchange", "scroll"].forEach(function(eventType) {
 		addEventListener(eventType, function() {
 			updateNavFocusMarker();
+			highlightVisibleSections(sections);
 		});
 	});
 }());
