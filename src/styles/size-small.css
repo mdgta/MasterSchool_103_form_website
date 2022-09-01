@@ -48,18 +48,9 @@ section p {
 .layout-site-intro-content {
 	background: linear-gradient(#8bb77f, #cbe6c4);
 }
-.layout-site-intro-image {
-	position: relative;
-}
-/*
-.layout-site-intro-image picture {
-	display: block;
-	margin-left: -50%;
-}
 .layout-site-intro-image img {
-	display: block;
+	vertical-align: middle;
 }
-*/
 
 /* news section */
 
@@ -117,7 +108,7 @@ section p {
 .dynamic-container a:hover {
 	opacity: 0.8;
 }
-.dynamic-container div {
+.dynamic-container .dynamic-item {
 	overflow: hidden;
 	background: #def;
 	border-radius: 10px;

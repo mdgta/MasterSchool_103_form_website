@@ -4,6 +4,8 @@
 
 /* dynamic image container */
 /* (tried to use a counter and increase for each next media query. didn't wory :/) so ima just use flex i guess */
+
+/*
 .dynamic-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -24,5 +26,35 @@
 @media (min-width: 1300px) {
 	.dynamic-container > a {
 		flex: 0 0 calc(100% / 5 - 20px);
+	}
+}
+*/
+/*
+.dynamic-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	gap: 10px;
+}
+.dynamic-container::after {
+	content: "";
+	flex-grow: 1; / * this awesome trick from stack overflow by Oriol - see readme * /
+}
+.dynamic-container .dynamic-item {
+	flex-basis: 180px;
+	flex-grow: 1;
+}
+*/
+.dynamic-container {
+	grid-template-columns: repeat(3, 1fr);
+}
+@media (min-width: 1000px) {
+	.dynamic-container {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+@media (min-width: 1400px) {
+	.dynamic-container {
+		grid-template-columns: repeat(6, 1fr);
 	}
 }

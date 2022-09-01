@@ -10,12 +10,32 @@ CSS-trics and their [article](https://css-tricks.com/svg-properties-and-css/#svg
 
 Also thanks to Rahim Afful-Brown for helping locating a data type check issue in `el.mk` on child elements after one of the commits and suggesting modularity.
 
+~~Flexbox trick for not enlarging the last line [by Oriol](https://stackoverflow.com/a/30307820)~~
+
 Manga/Manhwa titles from [Manga Read](https://www.mangaread.org/), especially for the recents section. I mean, I like reading them, but there's a limit of how much I can recall ¯\\\_(ツ)\_/¯ Well, at least recall for a professiona project, if you know what I mean ( ͡° ͜ʖ ͡°)
 
 ## Images
 
-- Main image- [Gladys Levery](https://gladyslevery.blogspot.com/2021/06/anime-collage-wallpaper-assorted-title.html)
-- One Punch Man- [thefandom.net](https://thefandom.net/one-punch-man-live-action/)
+- SVG images - original content (lol imagine calling a few vector lines "original")
+- Main image - [Gladys Levery](https://gladyslevery.blogspot.com/2021/06/anime-collage-wallpaper-assorted-title.html)
+- One Punch Man - [thefandom.net](https://thefandom.net/one-punch-man-live-action/)
+- Gachi Akurai - [Top Mangas](https://topmangas.net/wp-content/uploads/2022/03/gachi.jpg)
+- Martial Peak - [Martial Peak (MP) Wiki - Fandom](https://martial-peak-mp.fandom.com/wiki/Yang_Kai/Image_Gallery)
+- The Last Human - [Anime-Planet](https://www.anime-planet.com/manga/mortals-of-the-doom)
+- Boy's Abyss - [Hiperdex](https://hiperdex.com/manga/boys-abyss-engli/)
+- The King's Avatar - [Novel Updates](https://www.novelupdates.com/series/the-kings-avatar/)
+- Overgeared - [Anime-Planet](https://www.anime-planet.com/manga/overgeared)
+- One Piece - [Simon & Schuster](https://www.simonandschuster.co.uk/books/One-Piece-Vol-62/Eiichiro-Oda/One-Piece/9781421541969)
+- Omniscient Reader's Viewpoint - [readmng](https://www.readmng.com/omniscient-readers-viewpoint)
+- Arcane Sniper - [Genkan](https://genkan.io/manga/4705691304-arcane-sniper)
+- Leviathan - [Manga Read](https://www.mangaread.org/manga/leviathan/)
+- Updater - [Read Manga](https://www.mangaread.org/manga/updater/)
+- Mercenary Enrollment - [Read Manga](https://www.mangaread.org/manga/mercenary-enrollment/)
+- Solo Login - [Manga Read](https://www.mangaread.org/manga/i-log-in-alone/)
+- Killing Stalking - [Wallpaper Cave](https://wallpapercave.com/killing-stalking-computer-wallpapers)
+- Painter of the Night - [Anime-Planet](https://www.anime-planet.com/manga/painter-of-the-night)
+- Pian Pian - [Nerdlog](https://www.nerdlog.it/haesin-young-pian-pian-minaccia-azione-legale-contro-mangagogo/)
+- Nano Machine - [Manga Read](https://www.mangaread.org/manga/nano-machine/)
 
 ## app.js
 

@@ -2,16 +2,18 @@
 	# global header
 \* ================================ */
 
-
-/*
-(function(b, p, w) {
-	copy(`linear-gradient(to right, #${b}, #${b} 20%, #${p} 20%, #${p} 40%, #${w} 40%, #${w} 60%, #${p} 60%, #${p} 80%, #${b} 80%)`);
-}("6bf", "fbf", "fff"));
-*/
-
 /* intro section */
 #layout-site-intro {
 	grid: auto / 1fr 1fr;
+}
+
+/* dynamic image container */
+.dynamic-container h2 {
+	font-size: 18px;
+}
+.dynamic-container p {
+	font-size: 18px;
+	margin-bottom: 6px;
 }
 
 /* form */

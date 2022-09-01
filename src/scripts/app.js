@@ -234,7 +234,9 @@ function populateDynamicContainer(container, data) {
 			</div>
 		*/
 		const a = el.mk("a"),
-			div = el.mk("div"),
+			div = el.mk("div", {
+				class: "dynamic-item"
+			}),
 			h2 = el.mk("h2", {
 				text: item.title
 			}),
