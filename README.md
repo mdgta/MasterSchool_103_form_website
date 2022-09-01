@@ -10,7 +10,7 @@ CSS-trics and their [article](https://css-tricks.com/svg-properties-and-css/#svg
 
 Also thanks to Rahim Afful-Brown for helping locating a data type check issue in `el.mk` on child elements after one of the commits and suggesting modularity.
 
-Manga/Manhwa titles from [Manga Read](https://www.mangaread.org/), especially for the recents section. I mean, I like reading them, but there's a limit of how much I can recall ¯\_(ツ)_/¯ Well, at least recall for a professiona project, if you know what I mean ( ͡° ͜ʖ ͡°)
+Manga/Manhwa titles from [Manga Read](https://www.mangaread.org/), especially for the recents section. I mean, I like reading them, but there's a limit of how much I can recall ¯\\\_(ツ)\_/¯ Well, at least recall for a professiona project, if you know what I mean ( ͡° ͜ʖ ͡°)
 
 ## Images
 
