@@ -1,50 +1,7 @@
 #layout-container {
-	margin: 70px 100px 0 100px;
+	margin: 80px 100px 0 100px;
 }
 
-/* dynamic image container */
-/* (tried to use a counter and increase for each next media query. didn't wory :/) so ima just use flex i guess */
-
-/*
-.dynamic-container {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-}
-.dynamic-container h2,
-.dynamic-container p {
-	font-size: 14px;
-}
-.dynamic-container > a {
-	flex: 0 0 calc(100% / 4 - 20px);
-}
-@media (min-width: 1000px) {
-	.dynamic-container > a {
-		flex: 0 0 calc(100% / 4 - 20px);
-	}
-}
-@media (min-width: 1300px) {
-	.dynamic-container > a {
-		flex: 0 0 calc(100% / 5 - 20px);
-	}
-}
-*/
-/*
-.dynamic-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	gap: 10px;
-}
-.dynamic-container::after {
-	content: "";
-	flex-grow: 1; / * this awesome trick from stack overflow by Oriol - see readme * /
-}
-.dynamic-container .dynamic-item {
-	flex-basis: 180px;
-	flex-grow: 1;
-}
-*/
 .dynamic-container {
 	grid-template-columns: repeat(3, 1fr);
 }

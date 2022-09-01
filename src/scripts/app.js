@@ -215,6 +215,7 @@ function updateNavFocusMarker() {
 
 // get global header height
 function getGlobalHeaderHeight() {
+	// just thought of maybe changing the height for desktop in case i'd like to add more functionality to it, idk, for now it looks good
 	return isLargeScreen() ? 70 : 70;
 }
 
@@ -244,7 +245,7 @@ function populateDynamicContainer(container, data) {
 			dateObj = new Date(item.date),
 			p = el.mk("p", {
 				childs: [
-					"Chapter " + item.chapter,
+					"Chapter " + item.chapter + (item.end ? " END" : ""),
 					el.mk("br"),
 					el.mk("time", {
 						text: formatDate(dateObj.toString().match(/[a-z]+ \d+/i)[0]),
@@ -285,7 +286,8 @@ function populateDynamicContainer(container, data) {
 					document.querySelector("#global-header").classList.remove("global-header-menu-open");
 					// scroll to position
 					scrollBy({
-						top: section.getBoundingClientRect().top - getGlobalHeaderHeight(), // minus the global nav height
+						// top position, minus the global nav height, minus 4px just because it looks nicer with a space between the section and header w/o using top padding
+						top: section.getBoundingClientRect().top - getGlobalHeaderHeight() - 4,
 						behavior: "smooth"
 					});
 				}]

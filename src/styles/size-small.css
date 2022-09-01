@@ -45,12 +45,19 @@ section p {
 	border-radius: 20px;
 	overflow: hidden;
 }
+.layout-site-intro-image {
+	display: flex;
+}
+.layout-site-intro-image picture {
+	display: contents;
+}
+.layout-site-intro-image img {
+	object-fit: cover;
+}
 .layout-site-intro-content {
 	background: linear-gradient(#8bb77f, #cbe6c4);
 }
-.layout-site-intro-image img {
-	vertical-align: middle;
-}
+
 
 /* news section */
 

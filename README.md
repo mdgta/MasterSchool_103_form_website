@@ -12,6 +12,8 @@ Also thanks to Rahim Afful-Brown for helping locating a data type check issue in
 
 ~~Flexbox trick for not enlarging the last line [by Oriol](https://stackoverflow.com/a/30307820)~~
 
+Adjustable image cropping regardless of aspect-ratio [by Always Helping](https://stackoverflow.com/a/62736355).
+
 Manga/Manhwa titles from [Manga Read](https://www.mangaread.org/), especially for the recents section. I mean, I like reading them, but there's a limit of how much I can recall ¯\\\_(ツ)\_/¯ Well, at least recall for a professiona project, if you know what I mean ( ͡° ͜ʖ ͡°)
 
 ## Images
