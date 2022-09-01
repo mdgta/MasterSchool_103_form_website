@@ -112,6 +112,7 @@ section p {
 }
 .dynamic-container a {
 	color: #666;
+	display: contents;
 }
 .dynamic-container a:hover {
 	opacity: 0.8;

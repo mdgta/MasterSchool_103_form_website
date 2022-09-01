@@ -158,6 +158,33 @@ el.applyData = function(node, data) {
 /* miscellaneous functions */
 
 // check if in mobile/tablet OR desktop
+
+// format date
+function formatDate(s) {
+	// s = "[A-Z][a-z]{2} \d{2}"
+	// e.g. "Aug 03"
+	return s.replace(/^[a-z]+/i, function(m) {
+		const months = {
+			Jan: "January",
+			Feb: "February",
+			Mar: "March",
+			Apr: "April",
+			May: "May",
+			Jun: "June",
+			Jul: "July",
+			Aug: "August",
+			Sep: "September",
+			Oct: "October",
+			Nov: "November",
+			Dec: "December"
+		};
+		return months[m];
+	}).replace(/\d+$/, function(m) {
+		return Number(m);
+	});
+}
+
+// if is large screen (desktop)
 function isLargeScreen() {
 	return screen.availWidth >= 720;
 }
@@ -218,7 +245,7 @@ function populateDynamicContainer(container, data) {
 					"Chapter " + item.chapter,
 					el.mk("br"),
 					el.mk("time", {
-						text: dateObj.toString().match(/[a-z]+ \d+/i)[0],
+						text: formatDate(dateObj.toString().match(/[a-z]+ \d+/i)[0]),
 						attrs: {
 							datetime: dateObj.toJSON()
 						}
@@ -276,96 +303,16 @@ function populateDynamicContainer(container, data) {
 
 /* add sections for recent/popular */
 (function() {
-	const recents = [
-		{
-			title: "One Punch Man",
-			chapter: "170",
-			date: 1661957001043,
-			url: "/manga/831/chapters/170",
-			img: "src/images/opm.jpg",
-			final: true
-		},
-		{
-			title: "One Punch Man",
-			chapter: "169",
-			date: 1661352201043,
-			url: "/manga/831/chapters/169",
-			img: "src/images/opm.jpg"
-		},
-		{
-			title: "One Punch Man",
-			chapter: "168",
-			date: 1660747401043,
-			url: "/manga/831/chapters/168",
-			img: "src/images/opm.jpg"
-		},
-		{
-			title: "One Punch Man",
-			chapter: "167",
-			date: 1660142601043,
-			url: "/manga/831/chapters/167",
-			img: "src/images/opm.jpg"
-		},
-		{
-			title: "One Punch Man",
-			chapter: "166",
-			date: 1659537801043,
-			url: "/manga/831/chapters/166",
-			img: "src/images/opm.jpg"
-		},
-		{
-			title: "One Punch Man",
-			chapter: "165",
-			date: 1658933001043,
-			url: "/manga/831/chapters/165",
-			img: "src/images/opm.jpg"
-		},
-		{
-			title: "One Punch Man",
-			chapter: "164",
-			date: 1658328201043,
-			url: "/manga/831/chapters/164",
-			img: "src/images/opm.jpg"
-		},
-		{
-			title: "One Punch Man",
-			chapter: "163.5",
-			date: 1657723401043,
-			url: "/manga/831/chapters/163-5",
-			img: "src/images/opm.jpg"
-		},
-		{
-			title: "One Punch Man",
-			chapter: "163",
-			date: 1657118601043,
-			url: "/manga/831/chapters/163",
-			img: "src/images/opm.jpg"
-		},
-		{
-			title: "One Punch Man",
-			chapter: "162",
-			date: 1656513801043,
-			url: "/manga/831/chapters/162",
-			img: "src/images/opm.jpg"
-		},
-		{
-			title: "One Punch Man",
-			chapter: "161",
-			date: 1655909001043,
-			url: "/manga/831/chapters/161",
-			img: "src/images/opm.jpg"
-		},
-		{
-			title: "One Punch Man",
-			chapter: "160",
-			date: 1655304201043,
-			url: "/manga/831/chapters/160",
-			img: "src/images/opm.jpg"
-		}
-	];
-	const populars = recents; // will make another object later if i have some free time... and feel like it :P
-	populateDynamicContainer(document.querySelector("#layout-site-popular .dynamic-container"), populars);
-	populateDynamicContainer(document.querySelector("#layout-site-recent .dynamic-container"), recents);
+	// gonna load it as json just to keep app.js a bit more tidy
+	const xhr = new XMLHttpRequest();
+	xhr.open("GET", "src/scripts/content.json", true);
+	xhr.onload = function() {
+		const data = JSON.parse(xhr.responseText);
+		populateDynamicContainer(document.querySelector("#layout-site-recent .dynamic-container"), data.recent);
+		populateDynamicContainer(document.querySelector("#layout-site-popular .dynamic-container"), data.popular);
+		populateDynamicContainer(document.querySelector("#layout-site-featured .dynamic-container"), data.featured);
+	}
+	xhr.send();
 }());
 
 /* mobile toggle menu */

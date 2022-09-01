@@ -8,12 +8,14 @@ Used as resources Masterschool's program (including Udacity and PluralSight) and
 
 CSS-trics and their [article](https://css-tricks.com/svg-properties-and-css/#svg-shape-morphing) about the use of CSS properties as SVG attributes to get the path's `d` also working in my CSS.
 
-Also thanks to Rahim Afful-Brown for helping locating a data type check issue in `el.mk` on child elements after one of the commits.
+Also thanks to Rahim Afful-Brown for helping locating a data type check issue in `el.mk` on child elements after one of the commits and suggesting modularity.
+
+Manga/Manhwa titles from [Manga Read](https://www.mangaread.org/), especially for the recents section. I mean, I like reading them, but there's a limit of how much I can recall ¯\_(ツ)_/¯ Well, at least recall for a professiona project, if you know what I mean ( ͡° ͜ʖ ͡°)
 
 ## Images
 
 - Main image- [Gladys Levery](https://gladyslevery.blogspot.com/2021/06/anime-collage-wallpaper-assorted-title.html)
-* One Punch Man- [thefandom.net](https://thefandom.net/one-punch-man-live-action/)
+- One Punch Man- [thefandom.net](https://thefandom.net/one-punch-man-live-action/)
 
 ## app.js
 
