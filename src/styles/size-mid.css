@@ -1,5 +1,5 @@
 /* ================================ *\
-	# global header
+	# main area
 \* ================================ */
 
 /* intro section */
@@ -19,4 +19,12 @@
 /* form */
 .subscription-form {
 	grid: auto / 1fr 1fr;
+}
+.subscription-form textarea,
+.subscription-form textarea:focus {
+	height: 225px;
+}
+
+.subscription-form button {
+	width: 200px;
 }

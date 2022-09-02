@@ -18,17 +18,12 @@
 
 	to-do:
 
-	add aria form
-
 	search for all the "test" and "debug" comments in every css/js file
 
 	make css comments a bit more tidy, if necessary
 
 	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -->
-
-
-
 
 
 
@@ -56,7 +51,7 @@
 </header>
 
 <!-- main layout grouping -->
-<div id="layout-container">
+<main id="layout-container">
 	<!-- intro section (not tabbed) -->
 	<section id="layout-site-intro">
 		<div class="layout-site-intro-image">
@@ -172,14 +167,6 @@
 					<input type="text" name="sbsc-fullname" placeholder="Write your name here" required />
 				</label>
 				<label>
-					E-mail address<span class="form-field-required"></span>
-					<!--
-						seriously, i'm not gonna use pattern here either, that's bad practice:
-						https://www.loqate.com/resources/blog/3-reasons-why-you-should-stop-using-regex-email-validation/
-					-->
-					<input type="email" name="sbsc-email" placeholder="Write your E-mail here" required />
-				</label>
-				<label>
 					Phone number
 					<!--
 						just gonna use common israeli number formats (all minus signs optional)
@@ -189,23 +176,32 @@
 					-->
 					<input type="tel" pattern="0\d{1,2}-?\d{3}-?\d{4}|1(?:-?\d{3}){3}" name="sbsc-phone" placeholder="Write your phone number here" />
 				</label>
-			</fieldset>
-			<fieldset>
+				<label>
+					E-mail address<span class="form-field-required"></span>
+					<!--
+						seriously, i'm not gonna use pattern here either, that's bad practice:
+						https://www.loqate.com/resources/blog/3-reasons-why-you-should-stop-using-regex-email-validation/
+						not to mention that patterns should also cover non-English domain names. 'required' seems to do it pretty well so i see no point of even bothering
+					-->
+					<input type="email" name="sbsc-email" placeholder="Write your E-mail here" required />
+				</label>
 				<label>
 					Subject<span class="form-field-required"></span>
 					<input type="text" name="sbsc-subject" placeholder="Write your subject here" required />
 				</label class="form-field-required">
+			</fieldset>
+			<fieldset>
 				<label>
 					Message<span class="form-field-required"></span>
 					<textarea name="sbsc-textbody" placeholder="Write your project information here" required></textarea>
 				</label>
-				<button>Subscribe</button>
 			</fieldset>
+			<button>Subscribe</button>
 		</form>
 	</section>
 
 	<!-- subscription box (untracked section) -->
-	<section id="layout-site-tags">
+	<footer id="layout-site-tags">
 		<header>
 			<h2>Tags</h2>
 		</header>
@@ -235,40 +231,45 @@
 			<a href="tags/15" class="tags-link" data-pop="3">Yaoi</a>
 			<a href="tags/10" class="tags-link" data-pop="4">Yuri</a>
 		</nav>
-	</section>
-</div>
+	</footer>
+</main>
 
 <!-- site footer -->
 <footer id="layout-site-footer">
-	<section class="footer-section footer-section-share">
-		<header>
-			<h3>Contact</h3>
-		</header>
-		<ul class="share-links">
-			<li><a href="" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i> Lorem Ipsum</a></li>
-			<li><a href="" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i> @dolorsit</a></li>
-			<li><a href="mailto:mangafoo@example.com"><i class="fa-solid fa-envelope"></i> mangafoo<wbr />@example.com</a></li>
-		</ul>
+	<section class="footer-sections-container">
+		<section class="footer-section footer-section-share">
+			<header>
+				<h3>Contact</h3>
+			</header>
+			<ul class="share-links">
+				<li><a href="" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i> Lorem Ipsum</a></li>
+				<li><a href="" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i> @dolorsit</a></li>
+				<li><a href="mailto:mangafoo@example.com"><i class="fa-solid fa-envelope"></i> mangafoo<wbr />@example.com</a></li>
+			</ul>
+		</section>
+		<section class="footer-section footer-section-policy">
+			<header>
+				<h3>Site Information</h3>
+			</header>
+			<ul>
+				<li><a href="site/about"><i class="fa-solid fa-circle-info"></i> About</a></li>
+				<li><a href="site/tou"><i class="fa-solid fa-circle-info"></i> Terms of Use</a></li>
+				<li><a href="site/cookies"><i class="fa-solid fa-cookie"></i> Cookie Policy</a></li>
+			</ul>
+		</section>
+		<section class="footer-section footer-section-policy">
+			<header>
+				<h3>Navigation</h3>
+			</header>
+			<ul>
+				<li><a href="site/blog">Blog</a></li>
+				<li><a href="site/forum">Forum</a></li>
+				<li><a href="site/wiki">Wiki</a></li>
+			</ul>
+		</section>
 	</section>
-	<section class="footer-section footer-section-policy">
-		<header>
-			<h3>Site Information</h3>
-		</header>
-		<ul>
-			<li><a href="site/about"><i class="fa-solid fa-circle-info"></i> About</a></li>
-			<li><a href="site/tou"><i class="fa-solid fa-circle-info"></i> Terms of Use</a></li>
-			<li><a href="site/cookies"><i class="fa-solid fa-cookie"></i> Cookie Policy</a></li>
-		</ul>
-	</section>
-	<section class="footer-section footer-section-policy">
-		<header>
-			<h3>Navigation</h3>
-		</header>
-		<ul>
-			<li><a href="site/blog">Blog</a></li>
-			<li><a href="site/forum">Forum</a></li>
-			<li><a href="site/wiki">Wiki</a></li>
-		</ul>
+	<section class="footer-refs">
+		For documentation: <a href="https://github.com/mdgta/form_website" rel="noopener noreferrer">mdgta/form_website</a>
 	</section>
 </footer>
 

@@ -13,8 +13,6 @@
 	transition: height 200ms;
 }
 
-
-
 /* ================================ *\
 	# main area
 \* ================================ */
@@ -31,7 +29,8 @@
 }
 
 /* sections in general */
-#layout-container > section {
+#layout-container > section,
+#layout-container > footer {
 	margin: 20px 0;
 }
 section p {
@@ -69,7 +68,6 @@ section p {
 .layout-site-intro-content {
 	background: linear-gradient(#8bb77f, #cbe6c4);
 }
-
 
 /* news section */
 .news-item + .news-item::before {
@@ -157,6 +155,7 @@ section p {
 }
 .subscription-form label {
 	display: block;
+	margin-top: 10px;
 }
 .form-field-required::before {
 	content: " *";
@@ -176,12 +175,18 @@ section p {
 	outline-offset: 2px;
 }
 [name="sbsc-textbody"] {
+	overflow: hidden;
 	resize: none;
 	transition: height 500ms 100ms ease-in-out;
 }
 [name="sbsc-textbody"]:focus {
 	height: 300px;
+	overflow: visible;
 	transition: height 300ms;
+}
+.subscription-form button {
+	padding: 6px;
+	cursor: pointer;
 }
 
 /* tags section */
@@ -216,12 +221,13 @@ section p {
 \* ================================ */
 
 #layout-site-footer {
+	padding: 50px 40px;
+	background: #6668;
+}
+.footer-sections-container {
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
-	min-height: 400px;
-	padding: 50px 40px;
-	background: #6668;
 }
 
 .footer-section {
@@ -238,6 +244,15 @@ section p {
 
 .footer-section a {
 	color: #fff;
+}
+
+.footer-refs {
+	margin-top: 100px;
+	text-align: center;
+	color: #000;
+}
+.footer-refs a {
+	color: #8ff;
 }
 
 /* ================================ *\

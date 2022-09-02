@@ -383,14 +383,3 @@ document.querySelector("#global-header svg").addEventListener("click", function(
 		}
 	});
 }());
-
-/* for debugging */
-(function() {
-	try {
-		document.querySelector('[name="sbsc-fullname"]').value = "My Name";
-		document.querySelector('[name="sbsc-email"]').value = "foomail@test.com";
-		//document.querySelector('[name="sbsc-phone"]').value = "6";
-		document.querySelector('[name="sbsc-subject"]').value = "Some subject title";
-		document.querySelector('[name="sbsc-textbody"]').value = "She sells sheashells by the seashore.";
-	} catch(err) {}
-}());

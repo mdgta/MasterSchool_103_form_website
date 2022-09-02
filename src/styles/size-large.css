@@ -67,7 +67,7 @@
 }
 
 /* footer */
-#layout-site-footer {
+.footer-sections-container {
 	flex-direction: row;
 	justify-content: center;
 	gap: 60px;
