@@ -6,6 +6,8 @@ Masterschool's form website project (103). Their proposed layout example can be 
 
 Used as resources Masterschool's program (including Udacity and PluralSight) and MDN.
 
+[Font Awesome](https://fontawesome.com/) and [Google Fonts](https://fonts.google.com/) used in this project.
+
 CSS-trics and their [article](https://css-tricks.com/svg-properties-and-css/#svg-shape-morphing) about the use of CSS properties as SVG attributes to get the path's `d` also working in my CSS.
 
 Also thanks to Rahim Afful-Brown for helping locating a data type check issue in `el.mk` on child elements after one of the commits and suggesting modularity.
@@ -14,7 +16,7 @@ Also thanks to Rahim Afful-Brown for helping locating a data type check issue in
 
 Adjustable image cropping regardless of aspect-ratio [by Always Helping](https://stackoverflow.com/a/62736355).
 
-Manga/Manhwa titles from [Manga Read](https://www.mangaread.org/), especially for the recents section. I mean, I like reading them, but there's a limit of how much I can recall ¯\\\_(ツ)\_/¯ Well, at least recall for a professiona project, if you know what I mean ( ͡° ͜ʖ ͡°)
+Manga/Manhwa titles from [Manga Read](https://www.mangaread.org/), especially for the recents section. I mean, I like reading them, but there's a limit of how much I can recall ¯\\\_(ツ)\_/¯ Well, at least recall for a professional project, if you know what I mean ( ͡° ͜ʖ ͡°)
 
 Please note that the links to the manga are just made-up, most websites also have links in a similar format so I just used some random URL paths to make it feel more realistic.
 

@@ -7,6 +7,6 @@
 /* large screens (desktop) */
 @import url('./size-large.css') screen and (min-width: 720px);
 @import url('./nav-large.css') screen and (min-width: 720px);
-@import url('./size-larger.css') screen and (min-width: 1000px);
+@import url('./size-larger.css') screen and (min-width: 960px);
 /* fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');

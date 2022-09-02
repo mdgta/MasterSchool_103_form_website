@@ -44,7 +44,7 @@ section p {
 */
 [data-section] {
 	transition: background 1s cubic-bezier(0, 0, 0.5, 1);
-	background: #ff0;
+	background: #ff08;
 }
 .section-in-view {
 	background: #ff00;
@@ -184,6 +184,66 @@ section p {
 	transition: height 300ms;
 }
 
+/* tags section */
+#layout-site-tags {
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 20px 40px;
+}
+.tags-links {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: center;
+	gap: 20px;
+}
+.tags-link {
+	font-size: 24px;
+	line-height: 1.5em;
+}
+[data-pop="1"] {
+	font-size: 12px;
+}
+[data-pop="2"] {
+	font-size: 16px;
+}
+[data-pop="3"] {
+	font-size: 20px;
+}
+
+/* ================================ *\
+	# footer
+\* ================================ */
+
+#layout-site-footer {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	min-height: 400px;
+	padding: 50px 40px;
+	background: #6668;
+}
+
+.footer-section {
+	color: #fff;
+}
+
+.footer-section h3 {
+	margin: 0;
+	padding: 0;
+}
+.footer-section li {
+	margin: 5px 0;
+}
+
+.footer-section a {
+	color: #fff;
+}
+
+/* ================================ *\
+	# miscellaneous
+\* ================================ */
+
 /* back to top button */
 #back-to-top {
 	width: 40px;
@@ -197,20 +257,6 @@ section p {
 	transition: right 300ms, border-radius 300ms 150ms;
 	cursor: pointer;
 }
-
-/* ================================ *\
-	# footer
-\* ================================ */
-
-#layout-site-footer {
-	height: 600px;
-	background: #6668;
-}
-
-/* ================================ *\
-	# miscellaneous
-\* ================================ */
-
 #back-to-top.back-to-top-hidden {
 	right: -40px;
 	border-radius: 40% 0 0 40%;

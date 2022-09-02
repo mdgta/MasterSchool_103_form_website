@@ -262,7 +262,6 @@ function populateDynamicContainer(container, data) {
 			h2 = el.mk("h2", {
 				text: item.title
 			}),
-			childsArray = item.hasOwnProperty("time") ? [] : [],
 			dateObj = new Date(item.date),
 			p = el.mk("p", {
 				childs: [

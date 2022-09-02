@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="src/styles/main.css" />
 	<link rel="apple-touch-icon" href="src/images/favicon.png" />
 	<link rel="icon" href="src/images/favicon.ico" />
+	<!-- font awesome from my previous project -->
+	<script src="https://kit.fontawesome.com/13308d5fee.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -15,8 +17,6 @@
 	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 	to-do:
-
-	add some footer content
 
 	add aria form
 
@@ -68,33 +68,6 @@
 			<h3>Blog and Latest Releases</h3>
 			<h2>Lorem Ipsum</h2>
 			<p>Here you will find the latest chapter of your favorite manga. Read more in our blog to get the latest information about manga and anime.</p>
-		</section>
-	</section>
-
-	<!-- recent -->
-	<section id="layout-site-recent" data-section="Most Recent">
-		<header>
-			<h2>Most Recent</h2>
-		</header>
-		<section class="dynamic-container">
-		</section>
-	</section>
-
-	<!-- popular -->
-	<section id="layout-site-popular" data-section="Popular">
-		<header>
-			<h2>Popular</h2>
-		</header>
-		<section class="dynamic-container">
-		</section>
-	</section>
-
-	<!-- featured -->
-	<section id="layout-site-featured" data-section="Featured">
-		<header>
-			<h2>Monthly Featured: One Punch Man</h2>
-		</header>
-		<section class="dynamic-container">
 		</section>
 	</section>
 
@@ -152,6 +125,33 @@
 		</article>
 	</section>
 
+	<!-- recent -->
+	<section id="layout-site-recent" data-section="Most Recent">
+		<header>
+			<h2>Most Recent</h2>
+		</header>
+		<section class="dynamic-container">
+		</section>
+	</section>
+
+	<!-- popular -->
+	<section id="layout-site-popular" data-section="Popular">
+		<header>
+			<h2>Popular</h2>
+		</header>
+		<section class="dynamic-container">
+		</section>
+	</section>
+
+	<!-- featured -->
+	<section id="layout-site-featured" data-section="Featured">
+		<header>
+			<h2>Monthly Featured: One Punch Man</h2>
+		</header>
+		<section class="dynamic-container">
+		</section>
+	</section>
+
 	<!-- subscription box -->
 	<section id="layout-site-subscription" data-section="Subscribe">
 		<header>
@@ -203,11 +203,73 @@
 			</fieldset>
 		</form>
 	</section>
+
+	<!-- subscription box (untracked section) -->
+	<section id="layout-site-tags">
+		<header>
+			<h2>Tags</h2>
+		</header>
+		<nav class="tags-links">
+			<a href="tags/49" class="tags-link" data-pop="3">Action</a>
+			<a href="tags/46" class="tags-link" data-pop="3">Adventure</a>
+			<a href="tags/28" class="tags-link" data-pop="2">Comedy</a>
+			<a href="tags/60" class="tags-link" data-pop="1">Drama</a>
+			<a href="tags/1" class="tags-link" data-pop="2">Fantasy</a>
+			<a href="tags/42" class="tags-link" data-pop="2">Harem</a>
+			<a href="tags/62" class="tags-link" data-pop="3">Hentai</a>
+			<a href="tags/30" class="tags-link" data-pop="4">Isekai</a>
+			<a href="tags/11" class="tags-link" data-pop="3">Manhwa</a>
+			<a href="tags/29" class="tags-link" data-pop="1">Martial Arts</a>
+			<a href="tags/27" class="tags-link" data-pop="2">Mecha</a>
+			<a href="tags/59" class="tags-link" data-pop="2">Military</a>
+			<a href="tags/16" class="tags-link" data-pop="2">Romance</a>
+			<a href="tags/32" class="tags-link" data-pop="2">School Life</a>
+			<a href="tags/3" class="tags-link" data-pop="2">Sci-Fi</a>
+			<a href="tags/47" class="tags-link" data-pop="2">Shonen</a>
+			<a href="tags/48" class="tags-link" data-pop="2">Shojo</a>
+			<a href="tags/13" class="tags-link" data-pop="3">Slife of Life</a>
+			<a href="tags/36" class="tags-link" data-pop="1">Super Power</a>
+			<a href="tags/54" class="tags-link" data-pop="2">Supernatural</a>
+			<a href="tags/23" class="tags-link" data-pop="1">Tragedy</a>
+			<a href="tags/55" class="tags-link" data-pop="4">Webtoon</a>
+			<a href="tags/15" class="tags-link" data-pop="3">Yaoi</a>
+			<a href="tags/10" class="tags-link" data-pop="4">Yuri</a>
+		</nav>
+	</section>
 </div>
 
 <!-- site footer -->
 <footer id="layout-site-footer">
-
+	<section class="footer-section footer-section-share">
+		<header>
+			<h3>Contact</h3>
+		</header>
+		<ul class="share-links">
+			<li><a href="" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i> Lorem Ipsum</a></li>
+			<li><a href="" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i> @dolorsit</a></li>
+			<li><a href="mailto:mangafoo@example.com"><i class="fa-solid fa-envelope"></i> mangafoo<wbr />@example.com</a></li>
+		</ul>
+	</section>
+	<section class="footer-section footer-section-policy">
+		<header>
+			<h3>Site Information</h3>
+		</header>
+		<ul>
+			<li><a href="site/about"><i class="fa-solid fa-circle-info"></i> About</a></li>
+			<li><a href="site/tou"><i class="fa-solid fa-circle-info"></i> Terms of Use</a></li>
+			<li><a href="site/cookies"><i class="fa-solid fa-cookie"></i> Cookie Policy</a></li>
+		</ul>
+	</section>
+	<section class="footer-section footer-section-policy">
+		<header>
+			<h3>Navigation</h3>
+		</header>
+		<ul>
+			<li><a href="site/blog">Blog</a></li>
+			<li><a href="site/forum">Forum</a></li>
+			<li><a href="site/wiki">Wiki</a></li>
+		</ul>
+	</section>
 </footer>
 
 <!-- script -->
