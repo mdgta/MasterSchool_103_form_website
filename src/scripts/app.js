@@ -287,6 +287,12 @@ function populateDynamicContainer(container, data) {
 	container.appendChild(frag);
 }
 
+// show/hide the "back to top" button if the user scrolled down/back at the top of the page, respectively
+function updateBtn(btn) {
+	const isBelowHeading = document.body.getBoundingClientRect().top <= getGlobalHeaderHeight();
+	btn.classList.toggle("back-to-top-hidden", !isBelowHeading);
+}
+
 /* ================================ *\
     # implementations
 \* ================================ */
@@ -361,18 +367,29 @@ document.querySelector("#global-header svg").addEventListener("click", function(
 					});
 				}]
 			]
-		}),
-		gn = document.querySelector("#global-navigation");
-	function updateBtn() {
-		const isBelowHeading = document.body.getBoundingClientRect().top <= getGlobalHeaderHeight();
-		btn.classList.toggle("back-to-top-hidden", !isBelowHeading);
-	}
-	updateBtn();
+		});
+	// update the button
+	updateBtn(btn);
+	// add scroll/hashchange listeners for updating the button
 	["hashchange", "scroll"].forEach(function(eventType) {
-		document.addEventListener(eventType, updateBtn);
+		document.addEventListener(eventType, function() {
+			updateBtn(btn);
+		});
 	});
 	document.body.appendChild(btn);
 }());
+
+/* form submit */
+document.querySelector("form").addEventListener("submit", function(e) {
+	e.preventDefault();
+	alert("Form has been successfully submitted!\n(for Udacity: close the alert, data logged in console)");
+	const fD = new FormData(e.target),
+		data = [];
+	for (let [key, val] of fD) {
+		data.push(`${key}: ${val}`);
+	}
+	console.log("\nform data:\n\n".padStart(64, "=") + data.join("\n") + "\n".padEnd(64, "="));
+});
 
 /* close mobile menu when switching to wider view (can happen when switching to landscape view) */
 (function() {
