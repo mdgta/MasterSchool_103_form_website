@@ -338,15 +338,229 @@ function updateBtn(btn) {
 /* add sections for recent/popular */
 (function() {
 	// gonna load it as json just to keep app.js a bit more tidy
-	const xhr = new XMLHttpRequest();
-	xhr.open("GET", "src/scripts/content.json", true);
-	xhr.onload = function() {
-		const data = JSON.parse(xhr.responseText);
-		populateDynamicContainer(document.querySelector("#layout-site-recent .dynamic-container"), data.recent);
-		populateDynamicContainer(document.querySelector("#layout-site-popular .dynamic-container"), data.popular);
-		populateDynamicContainer(document.querySelector("#layout-site-featured .dynamic-container"), data.featured);
-	}
-	xhr.send();
+	const data = {
+		"recent": [
+			{
+				"title": "Overgeared",
+				"chapter": "143",
+				"date": 1662012062622,
+				"url": "/manga/104/chapters/143",
+				"img": "src/images/overgeared.jpg"
+			},
+			{
+				"title": "The King\u2019s Avatar",
+				"chapter": "88",
+				"date": 1661995819915,
+				"url": "/manga/150/chapters/88",
+				"img": "src/images/kingsavatar.jpg"
+			},
+			{
+				"title": "Boy\u2019s Abyss",
+				"chapter": "106",
+				"date": 1662015260211,
+				"url": "/manga/112/chapters/106",
+				"img": "src/images/boysabyss.jpg"
+			},
+			{
+				"title": "THE LAST HUMAN",
+				"chapter": "474",
+				"date": 1661993604810,
+				"url": "/manga/96/chapters/474",
+				"img": "src/images/lasthuman.jpg"
+			},
+			{
+				"title": "Martial Peak",
+				"chapter": "2555",
+				"date": 1661994438625,
+				"url": "/manga/199/chapters/2555",
+				"img": "src/images/martialpeak.jpg"
+			},
+			{
+				"title": "Gachi Akuta",
+				"chapter": "26",
+				"date": 1662011844394,
+				"url": "/manga/178/chapters/26",
+				"img": "src/images/gachi.jpg"
+			}
+		],
+		"popular": [
+			{
+				"title": "One Punch Man",
+				"chapter": "170",
+				"date": 1661957001043,
+				"url": "/manga/15/chapters/170",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Piece",
+				"chapter": "1058",
+				"date": 1661796823120,
+				"url": "/manga/11/chapters/1058",
+				"img": "src/images/onepiece.jpg"
+			},
+			{
+				"title": "Omniscient Reader's Viewpoint",
+				"chapter": "121",
+				"date": 1661413507366,
+				"url": "/manga/125/chapters/121",
+				"img": "src/images/orvp.jpg"
+			},
+			{
+				"title": "Arcane Sniper",
+				"chapter": "85",
+				"date": 1661417464788,
+				"url": "/manga/700/chapters/85",
+				"img": "src/images/arcanesniper.jpg"
+			},
+			{
+				"title": "Leviathan",
+				"chapter": "214",
+				"date": 1661849036906,
+				"url": "/manga/214/chapters/214",
+				"img": "src/images/leviathan.jpg",
+				"end": true
+			},
+			{
+				"title": "Updater",
+				"chapter": "91",
+				"date": 1661505494088,
+				"url": "/manga/314/chapters/91",
+				"img": "src/images/updater.jpg"
+			},
+			{
+				"title": "Mercenary Enrollment",
+				"chapter": "98",
+				"date": 1661787744853,
+				"url": "/manga/158/chapters/98",
+				"img": "src/images/mercenaryenrollment.jpg"
+			},
+			{
+				"title": "Solo Login",
+				"chapter": "147",
+				"date": 1661886086369,
+				"url": "/manga/185/chapters/147",
+				"img": "src/images/solologin.jpg"
+			},
+			{
+				"title": "Killing Stalking",
+				"chapter": "67.5",
+				"date": 1661632075920,
+				"url": "/manga/35/chapters/67-5",
+				"img": "src/images/killingstalking.jpg",
+				"end": true
+			},
+			{
+				"title": "Painter of the Night",
+				"chapter": "102",
+				"date": 1661839490422,
+				"url": "/manga/95/chapters/102",
+				"img": "src/images/painterofthenight.jpg"
+			},
+			{
+				"title": "Pian Pian",
+				"chapter": "82.1",
+				"date": 1661658043208,
+				"url": "/manga/82.1/chapters/82-1",
+				"img": "src/images/pianpian.jpg"
+			},
+			{
+				"title": "Nano Machine",
+				"chapter": "120",
+				"date": 1661487783606,
+				"url": "/manga/103/chapters/120",
+				"img": "src/images/nanomachine.jpg"
+			}
+		],
+		"featured": [
+			{
+				"title": "One Punch Man",
+				"chapter": "170",
+				"date": 1661957001043,
+				"url": "/manga/831/chapters/170",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "169",
+				"date": 1661352201043,
+				"url": "/manga/831/chapters/169",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "168",
+				"date": 1660747401043,
+				"url": "/manga/831/chapters/168",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "167",
+				"date": 1660142601043,
+				"url": "/manga/831/chapters/167",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "166",
+				"date": 1659537801043,
+				"url": "/manga/831/chapters/166",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "165",
+				"date": 1658933001043,
+				"url": "/manga/831/chapters/165",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "164",
+				"date": 1658328201043,
+				"url": "/manga/831/chapters/164",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "163.5",
+				"date": 1657723401043,
+				"url": "/manga/831/chapters/163-5",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "163",
+				"date": 1657118601043,
+				"url": "/manga/831/chapters/163",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "162",
+				"date": 1656513801043,
+				"url": "/manga/831/chapters/162",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "161",
+				"date": 1655909001043,
+				"url": "/manga/831/chapters/161",
+				"img": "src/images/opm.jpg"
+			},
+			{
+				"title": "One Punch Man",
+				"chapter": "160",
+				"date": 1655304201043,
+				"url": "/manga/831/chapters/160",
+				"img": "src/images/opm.jpg"
+			}
+		]
+	};
+	populateDynamicContainer(document.querySelector("#layout-site-recent .dynamic-container"), data.recent);
+	populateDynamicContainer(document.querySelector("#layout-site-popular .dynamic-container"), data.popular);
+	populateDynamicContainer(document.querySelector("#layout-site-featured .dynamic-container"), data.featured);
 }());
 
 /* mobile toggle menu */
